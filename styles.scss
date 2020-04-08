@@ -1,0 +1,255 @@
+/*TRAVELS PROJECT*/
+
+/*	SASS VARIABLES		*/
+
+$maxWidth : 700px;
+$minWidth : 701px;
+$bodyBackground : #f1f1f1;
+
+/*----------------------*/
+
+%body {
+	height:100%;
+	font-family: Arial;
+	padding:5px;
+	background: $bodyBackground;	
+	color: black;	
+	}
+
+li:hover {
+	background-color: #3e8e41;
+    color: white;
+}
+
+a:hover {
+	color: yellow;
+} 
+
+.tableContainer {
+  padding: 2rem 0rem;
+}
+
+tr img {
+	 width:190px;
+	 height:160px;
+}
+
+
+
+/*if the device width is less or equal to ...*/
+@media (max-width : $maxWidth) {
+	
+body {
+	 @extend %body;		
+	}
+	
+	h1 {
+		text-align:center;
+	}
+	h1:before {
+		content: "Teo Pinillo";
+	}
+	h2:before {
+		content : "My Travels";
+	}
+	centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color : white;
+		font-size : 10px;
+	}
+	a:link {
+		color: #BB0000;
+	}
+	
+	.placeImage {
+		border: 1px solid #ddd;
+		border-radius: 4px;		
+		width: auto;
+		height: auto; 
+		opacity: 1;    /*values from 0 to 1*/
+		padding : 2px;		
+		display: block;
+		margin-left: 2px;
+		margin-right: 2px;
+		text-align: center;
+	}
+	
+	img:hover {
+		box-shadow: 0 0 20px 10px rgba(0, 140, 186, 0.5);
+	}
+	
+	div.polaroid {		
+		margin-bottom: 1px;
+		margin-bottom: 1px;
+	}
+	div.place_label {
+		text-align: center;
+		color: black;
+		padding: 3px 3px;
+		font-size:small;
+	}
+	.navegation {
+		/*visibility: hidden;*/
+		/*display : none;*/
+		visibility: visible;
+	}
+	.hero-image {  
+			/* Use "linear-gradient" to add a darken background effect to the */  
+			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/banner.jpg);	
+			height: 165px;
+			width: auto;
+			/* Position and center the image to scale nicely on all screens */
+			background-position: center;
+			background-repeat: no-repeat;	
+			background-size: cover;
+			position: relative;	
+	}
+	
+	/* Place text in the middle of the image */
+	.hero-text {
+		text-align: center;
+		color: white;
+	}
+	
+	li {
+		background-color: #ddd;  
+		border: none; /*other values=> none */	  
+		padding: 5px;
+		text-align: left;
+		font-size: small;
+		margin: 2px;
+		transition: 0.3s;
+		text-align:center;
+	}
+	.leftmenu{
+		display : none;
+	}
+	.topnav {
+		/*padding:0;*/
+		padding:2px;		
+		display:inline;		
+	}
+	.image3x3 {
+		display : none;
+	}
+	.fluid_image {
+		display : visible;
+		display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;		
+	}
+}
+
+/*if the device width is greater or equal to ...*/
+@media (min-width : $minWidth) {
+body {
+		@extend %body;
+		color: green;  	
+	}
+	
+	h1 {
+		text-align:center;
+	}
+	
+	h1:before { 
+		/*text-indent:0;*/
+		content: "I am Teo Pinillo";
+		/*float:left;*/
+	}
+	h2:before {
+		content : "Welcome to my Travels";
+	}
+	centered {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color : yellow;
+	}
+	a:link {
+		color: #cc0000;
+	}
+	li {
+		font-size: medium; 
+	}
+	.replaceImage {
+		border: 1px solid #ddd;
+		border-radius: 10px;
+		padding: 5px;
+		width: 100%;  /* other values: auto */
+		height: auto;
+		opacity : 1;		
+		/*border: 2px solid black;*/
+		margin : 10px;
+		display: block;
+		margin-left: 1px;
+		margin-right: 1px;
+		background-color: white;	
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);		
+	}
+	
+	img:hover {
+		box-shadow: 0 0 20px 10px rgba(0, 140, 186, 0.5);
+	}
+	
+	div.polaroid {
+		margin-bottom: 5px;
+		margin-bottom: 5px;
+	}
+	div.place_label {
+		text-align: center;
+		color: black;
+		padding: 10px 10px;
+		font-size : medium;
+	}
+	.navegation {
+		visibility: visible;
+	}
+	.hero-text {
+		text-align: center;
+		color: white;
+	}
+	.hero-image {  
+		/* Use "linear-gradient" to add a darken background effect to the */  
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/banner.jpg);	
+		height: 100%;
+		width: 100%;
+		/* Position and center the image to scale nicely on all screens */
+		background-position: center;
+		background-repeat: no-repeat;	
+		background-size: cover;
+		position: relative;	
+	}	
+
+	li {
+		background-color: #ddd;  
+		border: 2px solid black; /*other values=> none */
+		color: black;
+		padding: 5px 5px;
+		text-align: center;
+		font-size: 16px;
+		margin: 4px 2px;
+		transition: 0.3s;
+	}
+
+	.topnav {		
+		display:none;
+	}
+	
+	.image3x3 {
+		display : visible;
+	}
+	.fluid_image {
+		display : none;
+	}
+	
+}
+
+#currentPage {
+	font-family : Impact, Charcoal, sans-serif;
+	color: 	#ff3333;
+}

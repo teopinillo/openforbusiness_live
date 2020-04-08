@@ -1,0 +1,6 @@
+Falta:
+
+ - You must use the #id selector at least once
+ 
+ - Your stylesheets must use at least one SCSS variable, at least one example
+   of SCSS nesting, and at least one use of SCSS inheritance.
