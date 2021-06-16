@@ -1,5 +1,10 @@
-# Project 0
+# Project Openforbussines
+Capstone project for the CS50 Web Programming with Python and JavaScript
 
-Web Programming with Python and JavaScript
+This project will help small bussines to create a web page an a easy way
 
-This project is a Web with visited places.
+
+
+development
+06/16/2021 Initilizaling the project, creating the users logging pages
+
