@@ -117,4 +117,7 @@ GitHub.sublime-settings
 .history
 .vs
 
+.README.md.swp
+Pipfile
+Pipfile.lock
 
