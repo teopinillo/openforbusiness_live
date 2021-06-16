@@ -27,7 +27,7 @@ media
 # Python # 
 *.py[cod] 
 *$py.class 
-appsecretes.py
+appsecrets.py
 
 # Distribution / packaging 
 .Python build/ 
@@ -115,4 +115,6 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+.vs
+
 
