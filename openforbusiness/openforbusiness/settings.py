@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 import appsecrets
 
@@ -27,17 +27,23 @@ SECRET_KEY = appsecrets.SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [   
+    ##user app
+    'users.apps.UsersConfig',    
+    ##crispy_forms
+    'crispy_forms',
+    'sites.apps.SitesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    'django.contrib.staticfiles',    
+    'openforbusiness',    
 ]
 
 MIDDLEWARE = [
@@ -55,7 +61,7 @@ ROOT_URLCONF = 'openforbusiness.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,8 +136,46 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FROM_EMAIL = 'teopinillo@pm.me'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
+"""
+https://learndjango.com/tutorials/django-password-reset-tutorial
+SMTP Server
+setup a way to deliver, or at least fake deliver, our email messages.
+In the real-world you would integrate with an email service like MailGun or SendGrid. 
+For development purposes Django lets us store emails either in the console or as a file. 
+We'll choose the latter and store all sent emails in a folder called sent_emails in our project directory.
+"""
+# USE 1 OR 2
+# ---- 1 ----
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+# ---- 2 ----
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+########################## collage email id #####################
+EMAIL_HOST_USER= appsecrets.MY_EMAIL
+EMAIL_HOST_PASSWOD= appsecrets.MY_EMAIL_PASSWORD
+
+
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+
+

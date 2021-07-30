@@ -1,3 +1,16 @@
 from django.contrib import admin
+from .forms import CustomUserCreationForm
+from .forms import CustomUserChangeForm
+from .models import CustomUser, Avatar
+from django.contrib.auth.admin import UserAdmin
 
-# Register your models here.
+class CustomUserAdmin (UserAdmin):
+    add_form = CustomUserCreationForm
+    form = CustomUserChangeForm
+    model = CustomUser
+    list_display = ['username','email','avatar',] 
+    list_editable = ('email','avatar',)
+
+admin.site.register (CustomUser, CustomUserAdmin)
+admin.site.register (Avatar)
+

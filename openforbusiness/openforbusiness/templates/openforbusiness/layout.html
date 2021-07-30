@@ -1,0 +1,124 @@
+{% load static %}
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Open For Business</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+     <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img class="logo" src="{% static 'lteo_logo.png' %}" alt="LOGO">
+            </a>
+            <button class="navbar-toggler" gg type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <!--Case user is authenticated -->
+                    {% if user.is_authenticated %}
+                    
+                        {% if mode == 1 %}
+                            <li class="nav-item active">
+                        {% else %}
+                            <li class="nav-item">
+                        {% endif %}
+                        <a class="nav-link" href="{% url 'index' %}">Home</a></li>
+
+                        {% comment %}
+                        {% if mode == 2 %}
+                        <!--
+                        <li class="nav-item active">{% else %}
+                        <li class="nav-item"> {% endif %}<a class="nav-link" href="{% url '#' %}">Search</a></li>
+                        -->                        
+                        {% endif %}
+                        {% endcomment %}
+
+                        {% if mode == 8 %}
+                            <li class="nav-item active">
+                        {% else %}
+                            <li class="nav-item">
+                        {% endif %}
+
+                        <a class="nav-link" href="{% url 'about' %}">About</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Welcome, {{user.username }}</a>
+                            <div class="dropdown-menu">
+                              <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                              <!--a class="dropdown-item" href="#">Another action</a-->
+                              <!--a class="dropdown-item" href="#">Something else here</a-->
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' user.id %}">
+                            <img class="avatar" src="{{user.avatar.url}}" alt="user avatar">
+                            </a>
+                        </li>
+                                                
+                    {% else %}
+                        <!-- User in not login -->
+
+                        <!--INDEX -->
+                        {% if mode == 5 %}
+                            <li class="nav-item active">
+                        {% else %}
+                            <li class="nav-item"> 
+                        {% endif %}                        
+                        <a class="nav-link" href="{% url 'index' %}">Home </a></li>
+
+                        <!-- ABOUT -->
+                        {% if mode == 8 %}
+                            <li class="nav-item active">
+                        {% else %}
+                            <li class="nav-item"> 
+                        {% endif %}                         
+                        <a class="nav-link" href="{% url 'about' %}">About </a></li
+
+                        <li class="nav-item">                        
+                        <a class="nav-link" href="{% url 'login'%}">Log In </a></li>   
+                        <li class="nav-item">                        
+                        <a class="nav-link" href="{% url 'signup'%}">Sign up </a></li>                       
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--reference-->
+    <!--https://pythoncircle.com/post/700/how-to-display-flash-messages-in-django-templates/-->
+    <div class="container">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            {{ message | safe }}
+        </div>
+        {% endfor %}
+    </div>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+
+</html>

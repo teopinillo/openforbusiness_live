@@ -1,0 +1,18 @@
+{% extends 'openforbusiness/layout.html' %}
+
+{% block content%}
+<div class="container">
+<div class="row">
+    <div class="col-sm">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }} 
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+        <div>
+            have an account? <a href="{% url 'login' %}">login here.</a>         
+        </div>
+    </div>
+</div>
+</div>
+{% endblock content%}
