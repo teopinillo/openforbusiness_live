@@ -1,0 +1,37 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+{% block head%}
+<link rel="stylesheet" type="text/css" href="{% static 'css/plan_a_styles.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<div class="body">
+    {% for icon in business_icons %}
+        <li>
+         {{ icon.business.name }}
+         
+         <img src="{{ icon.icon.url }}" alt="business icon">
+        </li>
+
+    {% empty  %}
+	    <div> No icons returned </div>
+    {% endfor %}
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".mr-auto .nav-item").bind("click", function (event) {
+            event.preventDefault();
+            var clickedItem = $(this);
+            $(".mr-auto .nav-item").each(function () {
+                $(this).removeClass("active");
+            });
+            clickedItem.addClass("active");
+        });
+    });
+</script>
+
+{% endblock %}
+

@@ -138,8 +138,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
+STATICFILES_DIR = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -170,8 +172,6 @@ EMAIL_USE_TLS=True
 ########################## collage email id #####################
 EMAIL_HOST_USER= appsecrets.MY_EMAIL
 EMAIL_HOST_PASSWOD= appsecrets.MY_EMAIL_PASSWORD
-
-
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

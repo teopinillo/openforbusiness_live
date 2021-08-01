@@ -4,17 +4,18 @@
 
 {% block head %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/loginStyles.css' %}">
+    <script src="{% static 'js/login.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
 <div class="container">
     <div class="loginbox">
-        <div>
-            
+        <div>            
             <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
+                
                 <!--Render the form within paragraph <p> tags-->
                 <button type="submit" class="btn btn-primary btn_login"> Log In </button>
             </form>

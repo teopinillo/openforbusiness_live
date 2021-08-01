@@ -148,3 +148,21 @@ cursor: pointer;
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.loginbox {
+    background-color: #bdc8e6;
+    padding: 10px;    
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+}
+
+/*remove django default comments*/
+.loginbox ul {
+    display: none;
+}
+
+span.helptext {
+    display : none;
+}
