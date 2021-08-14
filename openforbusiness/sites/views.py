@@ -1,5 +1,6 @@
 from sites.models import BusinessIcon
 from django.shortcuts import render
+#from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def plan_a (request):    
@@ -10,3 +11,8 @@ def icons (request):
     context = {'business_icons': business_icons}
     
     return render (request,'icons.html', context)
+
+#@login_required
+def my_business (request):
+    all_my_business = ""
+    return render (request, 'mybusiness.html')

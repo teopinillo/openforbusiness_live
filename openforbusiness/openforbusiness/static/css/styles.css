@@ -153,3 +153,15 @@ h1 {
     width: 50px;
     height: 50px;
 }
+
+.center {
+    text-align : center;
+}
+
+.checked {
+    color : orange;
+}
+
+.heart {
+    color : red;
+}

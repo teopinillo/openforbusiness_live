@@ -8,6 +8,8 @@
     <title>Open For Business</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--used in start reatings-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -56,7 +58,7 @@
                         {% else %}
                             <li class="nav-item">
                         {% endif %}
-
+                        <a class="nav-link" href="{% url 'my_business' %}">My Business</a></li>
                         <a class="nav-link" href="{% url 'about' %}">About</a></li>
 
                         <li class="nav-item dropdown">
@@ -117,8 +119,48 @@
         {% endfor %}
     </div>
     <hr>
+
+    
+    <div class="card border-primary mb-3" style="width: 400px; margin : 5px;">
+            <img class="card-img-top" src="#" alt={{item}}>
+            <div class="card-body">
+                <!--h5 class="card-title">{{auction}}</h5-->
+                <p class="card-text">
+                    <span class="fa fa-heart heart"></span>
+                    <span class="fa fa-heart-o"></span>
+                    <a href="#">
+                        Business Name
+                    </a>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
+                    
+                    <br>First small description
+                    <br>Second small description
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">17713 NW 78 AVE. Miami, Fl 33015 </small>
+                <small class="text-muted">(305) 826-3131</small>
+                
+            </div>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
     {% block content %}
     {% endblock %}
+
 </body>
 
 </html>
