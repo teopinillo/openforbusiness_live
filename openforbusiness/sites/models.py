@@ -2,6 +2,8 @@ from django.db import models
 from django.forms.models import ModelForm
 from users.models import CustomUser
 from django.core.validators import RegexValidator
+from django.conf import settings
+
 
 #US STATES & COUNTIES
 #will be filled with an API only once
@@ -47,11 +49,11 @@ class BusinessIconForm (ModelForm):
     model = BusinessIcon
     fields = '__all__'
     
-class Business (ModelForm):
-    user = models.ForeignKey ('CustomUser', on_delete=models.CASCADE, related_name="all_business")
+class Business (models.Model):    
+    user = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="all_business")
     name = models.CharField (max_length=250, null=False, blank=False)
     category = models.ForeignKey ('BusinessClasification', on_delete=models.CASCADE)
-    icon = models.ForeignKey ('BusinessIcon', on_delete=models.DO_NOTHING)
+    icon = models.ForeignKey ('BusinessIcon', on_delete=models.DO_NOTHING, related_name="icons")
     address1 = models.CharField(
         "Address line 1",
         max_length=1024,

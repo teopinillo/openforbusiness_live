@@ -27,5 +27,14 @@ email: @harvard.edu
  07/24/2021
   Password reset options
 
+08/04/2021
+  from django.contrib.auth.decorators import login_required
+  @login_requiered
+  https://pypi.org/project/django-login-required-middleware/
+
+08/13/2021
+error: "GET /accounts/login/?next=/accounts/login/ HTTP/1.1" 302 0
+solution: remove, from settings middleware:  
+#'login_required.middleware.LoginRequiredMiddleware',
 
 

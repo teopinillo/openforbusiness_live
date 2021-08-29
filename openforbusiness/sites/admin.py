@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from sites.models import BusinessClasification, BusinessIcon
+from sites.models import BusinessClasification, BusinessIcon, Business
 
 class BusinessClasificationAdmin (admin.ModelAdmin):
     pass
@@ -8,5 +8,9 @@ class BusinessClasificationAdmin (admin.ModelAdmin):
 class BusinessIconAdmin (admin.ModelAdmin):
     pass
 
-admin.site.register (BusinessClasification, BusinessClasificationAdmin)
-admin.site.register (BusinessIcon, BusinessIconAdmin)
+class BusinessAdmin (admin.ModelAdmin):
+    pass
+
+admin.site.register ( BusinessClasification, BusinessClasificationAdmin)
+admin.site.register ( BusinessIcon, BusinessIconAdmin)
+admin.site.register ( Business, BusinessAdmin )
