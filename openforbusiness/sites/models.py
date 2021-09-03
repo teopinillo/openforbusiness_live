@@ -77,19 +77,37 @@ class Business (models.Model):
     country = models.CharField("Country", max_length=3)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True) # validators should be a list
-    email = models.EmailField(max_length = 254)
+    email = models.EmailField(null=True, blank=True, max_length = 254)
     #template
     
     website = models.URLField(null=True, blank="True")
     
-    image1 = models.ImageField (null=True, upload_to = "business_images/")
-    image2 = models.ImageField (null=True, upload_to = "business_images/")
-    image3 = models.ImageField (null=True, upload_to = "business_images/")
+    image1 = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    image2 = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    image3 = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    card_image = models.ImageField (null=True, blank=True, upload_to = "business_images/")
     
+    #<a href ="http://www.facebook.com/my_page">my page description</a> 
+    facebook = models.CharField (null = True, blank=True, max_length = 254)
+    tweeter = models.CharField (null = True, blank=True, max_length = 254)
+    instagram = models.CharField (null = True, blank=True, max_length = 254)
+
+    description_line_1 = models.CharField (null = True, blank=True, max_length = 254)
+    description_line_2 = models.CharField (null = True, blank=True, max_length = 254)
     
     
     def __str__(self):
         return self.category.name + ' ' + self.name
+
+    def get_facebook_link (self):
+        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
+
+    def get_tweeter_link (self):
+        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
+
+    def get_instagram_link (self):
+        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
+
 
 #job_done
 # business

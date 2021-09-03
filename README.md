@@ -38,3 +38,11 @@ solution: remove, from settings middleware:
 #'login_required.middleware.LoginRequiredMiddleware',
 
 
+09/02/2021
+add field for bussines: 
+  facebook, twitter, instagram
+  description line 1
+  description line 2
+  card imagen
+
+  email,, image1, 2 and 3 could be blank

@@ -120,4 +120,4 @@ GitHub.sublime-settings
 .README.md.swp
 Pipfile
 Pipfile.lock
-
+migrations/
