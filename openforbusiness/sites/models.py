@@ -57,11 +57,13 @@ class Business (models.Model):
     address1 = models.CharField(
         "Address line 1",
         max_length=1024,
+        blank=True,
     )
 
     address2 = models.CharField(
         "Address line 2",
         max_length=1024,
+        blank = True,
     )
 
     zip_code = models.CharField(
@@ -108,7 +110,20 @@ class Business (models.Model):
     def get_instagram_link (self):
         return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
 
+    def get_address (self):
+        return self.address1 + " " + self.address2 + " " + self.city + " " + self.zip_code
 
+class ColorScheme (models.Model):
+    bck_bottom = models.CharField ( default="white", max_length=8 )
+    primary_text = models.CharField ( default="black", max_length=8 )
+    back_top = models.CharField ( default="white", max_length=8 )
+    icons = models.CharField ( default="black", max_length=8 )
+    top_text_secundary = models.CharField ( default="black", max_length=8 )
+    name = models.CharField ( null=False, blank=False, unique=True, max_length=20 )
+    
+    def __str__(self):
+        return self.name
+    
 #job_done
 # business
 # image_job_done

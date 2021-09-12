@@ -1,0 +1,129 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="cards_catalog" >
+    {% for b in business %}
+        {% comment %}
+        <div class="card border-primary mb-3" style="width: 400px; margin : 5px;">
+            
+            <div 
+                style="background-image: url('media/{{b.card_image}}');
+                background-repeat:no-repeat;
+                background-size:contain;
+                height: 150px;
+                text-align: center;">
+                
+                    {#<img class="card-img-top" src="media/{{b.card_image}}" alt="" style="width:100%;height:150px;">#}
+            </div>
+
+            <div class="card-body">
+
+                <p class="card-text">
+                    <span class="fa fa-heart heart"></span>
+                    <span class="fa fa-heart-o"></span>
+                    <a href="#">
+                        {{ b.name }}
+                    </a>
+                    <br />
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
+
+                    {% if b.description_line_1|length  %}
+                    <br>{{ b.description_line_1 }}
+                    {% endif %}
+
+                    {% if b.description_line_2|length  %}
+                    <br>{{ b.description_line_2 }}
+                    {% endif %}
+
+
+                </p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{{ b.get_address }}</small>
+                <small class="text-muted">{{ b.phone_number }}</small>
+            </div>
+        </div>
+        <!-- End of Card-->
+        {% endcomment %}
+    <!--card -->
+    
+        <div class="b_card">
+            <div class="b_name">
+                <h4>{{ b.name }}</h4>
+            </div>
+
+            <div class="b_card_img" 
+                style="
+                    background-image: url('../media/{{b.card_image}}');
+                    background-repeat:no-repeat; 
+                    background-size:cover;
+                    height: 150px;
+                    text-align: center;"> 
+            </div>
+            <div class="b_rating">
+                <span class="fa fa-heart heart"></span>
+                <span class="fa fa-heart-o"></span>
+                <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
+            </div>
+            <div class="b_line_1">
+                {% if b.description_line_1|length  %}
+                    {{ b.description_line_1 }}
+                {% endif %}                
+            </div>
+            <div class="b_line_2">
+                {% if b.description_line_1|length  %}
+                    {{ b.description_line_2 }}
+                {% endif %}
+            </div>
+            <div class="b_address">
+                <small class="text-muted">{{ b.get_address }}</small>
+                <small class="text-muted">{{ b.phone_number }}</small>
+            </div>
+        </div>  <!--end of card-->
+
+    {% empty %}
+        <p> No business registered yet. </p>
+    {% endfor %}
+</div> <!--cards_container-->
+
+<!--Django Pagination-->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end pagination-style">
+        <span class="step-links">
+            {% if business.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ business.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current">
+            Page {{ business.number }} of {{ business.paginator.num_pages }}.
+            </span>
+            {% if business.has_next %}
+                <a href="?page={{ business.next_page_number }}">next</a>
+                <a href="?page={{ business.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+        <!-- <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>-->
+    </ul>
+</nav>
+<!-- End Django Pagination -->
+{% endblock %}

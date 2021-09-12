@@ -46,3 +46,15 @@ add field for bussines:
   card imagen
 
   email,, image1, 2 and 3 could be blank
+
+09/10/2021
+  Created a model for styles
+  This color style were given a name, the color schemegiven by:
+  https://www.w3schools.com/colors/colors_schemes.asp
+  color names given by:
+  https://chir.ag/projects/name-that-color
+
+  to load default color schemes:
+  $ python manage.py loaddata sites/fixtures/color_scheme_data.json
+
+

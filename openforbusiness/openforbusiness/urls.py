@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
-    path("",index, name='index'),
+    path("",include ('sites.urls')),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path("about", about, name="about"),

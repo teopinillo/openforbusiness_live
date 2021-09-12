@@ -121,3 +121,4 @@ GitHub.sublime-settings
 Pipfile
 Pipfile.lock
 migrations/
+migrations

@@ -165,3 +165,62 @@ h1 {
 .heart {
     color : red;
 }
+
+.cards_catalog {
+    display : flex;
+    flex-wrap: wrap;
+}
+
+.b_card{
+    display:grid;
+    width:400px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+    "b_name b_name"
+    "b_card_img b_rating"
+    "b_card_img b_line_1"
+    "b_card_img b_line_2"
+    "b_address b_address";
+
+    border-color: bisque;
+    background-color: beige;
+    border-radius: 5px;
+    margin: 10px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}
+
+.b_name {
+    background-color: aliceblue;
+    grid-area:b_name;
+    text-align: center;
+}
+
+.b_card_img {    
+    grid-area:b_card_img;   
+    border-radius: 5px;    
+}
+
+.b_rating {
+    /*background-color: cadetblue;*/
+    grid-area:b_rating;
+    padding-left: 3px;
+}
+.b_line_1 {
+    /*background-color: darkcyan;*/
+    grid-area:b_line_1;
+    padding-left: 3px;
+}
+.b_line_2 {
+    /*background-color: chocolate;*/
+    grid-area:b_line_2;
+    padding-left: 3px;
+}
+
+.b_address{
+    background-color: rgb(207, 209, 202);
+    grid-area:b_address;
+    padding-left: 3px;
+}

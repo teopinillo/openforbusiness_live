@@ -1,0 +1,67 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+
+{% block head %}    
+    <script src="{% static 'js/newbusiness.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h3 class="center">New Business</h3>
+    <label for="Style">Choose card color scheme:</label>
+    <select name="color" id="color-change" data-background = "#343434" style = "background: #343434;">
+    {% for color in colors %}
+        {{ color.name }}
+        <option id="option-{{color.pk}}" value={{ color.pk }} 
+            style = "background:{{color.bck_bottom}};
+            color: {{ color.top_text_secundary}};"
+            
+            data-background = {{color.bck_bottom}}
+            data-topbackground = {{color.back_top}}
+            data-text = {{color.primary_text}}
+            data-bottombackground = {{color.top_text_secundary }}
+            data-iconscolor = {{color.icons}}>
+            
+            {{color.name}}
+        </option>
+    {% endfor %}
+    </select>
+</div>
+
+<div class="b_card" id="bCard">
+            <div class="b_name" id="businessName" style="background : white;">
+                <h4>Business Name</h4>
+            </div>
+
+            <div class="b_card_img" style="background-image: url('../media/business_images/hand_shake.jpg');
+                background-repeat:no-repeat;
+                background-size:cover;
+                height: 150px;
+                text-align: center;">                
+            </div>
+            <div class="b_rating">
+                <span class="fa fa-heart heart"></span>
+                <span class="fa fa-heart-o"></span>
+                <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
+            </div>
+            <div class="b_line_1">
+                description line 1                             
+            </div>
+            <div class="b_line_2">                
+                description line 2                
+            </div>
+            <div class="b_address">
+                <small class="text-muted">business address</small>
+                <small class="text-muted">& phone number</small>
+            </div>
+</div>  <!--end of card-->
+
+
+<!--List of Business-->
+
+{% endblock %}
