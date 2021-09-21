@@ -1,8 +1,8 @@
 {% extends "openforbusiness/layout.html" %}
 {% load static %}
 
-{% block head %}
-<script src="{% static 'js/newbusiness.js' %}"></script>
+{% block head %}    
+    <script src="{% static 'js/newbusiness.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -13,33 +13,33 @@
 
 <div id="django_form" class="form-group business_form">
     <form method="post" action="" class="">
-        {% csrf_token %}
-        <div class="b_card" id="bCard">
-            <input type="text" class="form-control b_name" id="businessName" name="name" required placeholder="Business Name" style="background : white;">
-
+    {% csrf_token %} 
+        <div class="b_card" id="bCard">                                
+            <input type="text" class="form-control b_name" id="businessName" name="name" placeholder="Business Name" style="background : white;">
+                        
             <div class="b_card_img" style="background-image: url('../media/business_images/hand_shake.jpg');
                 background-repeat:no-repeat;
                 background-size:cover;
                 height: 130px;
                 text-align: center;
                 margin-top:5px;
-                margin-bottom:5px;">
+                margin-bottom:5px;">                
             </div>
             <div class="b_rating">
                 <span class="fa fa-heart heart"></span>
                 <!--span class="fa fa-heart-o"></!--span-->
                 <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                10
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
             </div>
             <div class="b_line_1">
-                <input type="text" class="form-control b_name" id="description1" name="description_line_1" placeholder="description " style="background : white;">
+                <input type="text" class="form-control b_name" id="description1" name="description1" placeholder="description " style="background : white;">                
             </div>
             <div class="b_line_2">
-                <input type="text" class="form-control b_name" id="description2" name="description_line_2" placeholder="description " style="background : white;">
+                <input type="text" class="form-control b_name" id="description2" name="description1" placeholder="description " style="background : white;">
             </div>
             <div class="b_address">
                 <small class="text-muted">business address</small>
@@ -47,10 +47,7 @@
             </div>
         </div>  <!--end of card-->
 
-        <div>
-            {{form.category.label}}
-            {{form.category}}
-        </div>
+
         <div id="data_input">
             <!--Style Input-->
             <div id="style_input" style="margin-top:5px;">
@@ -60,7 +57,8 @@
                     {% for color in colors %}
 
                     <option id="option-{{color.pk}}" value={{ color.pk }}
-                            style="background:{{color.bck_bottom}};color:{{ color.top_text_secundary}};"
+                            style="background:{{color.bck_bottom}};
+                color: {{ color.top_text_secundary}};"
                             data-background={{color.bck_bottom}}
                             data-topbackground={{color.back_top}}
                             data-text={{color.primary_text}}
@@ -91,7 +89,7 @@
                         ZIP
                     </span>
                 </div>
-                <input type="text" name="zip_code" id="zip_id" required class="form-control" aria-label="zip code" aria-describedby="basic-addon1">
+                <input type="text" name="zip" id="zip_id" class="form-control" aria-label="zip code" aria-describedby="basic-addon1">
             </div>
 
             <!--phone input-->
@@ -101,7 +99,7 @@
                         <i class="fa fa-phone-square" aria-hidden="true"></i>
                     </span>
                 </div>
-                <input type="text" name="phone_number" id="phone_id" class="form-control" aria-label="phone" aria-describedby="basic-addon1">
+                <input type="text" name="phone" id="phone_id" class="form-control" aria-label="phone" aria-describedby="basic-addon1">
             </div>
 
             <!--website input-->
@@ -135,8 +133,9 @@
             <input type='submit' value='Save'>
         </div> <!--data input-->
     </form>
-
+    
 </div>
 
 <!--List of Business-->
+
 {% endblock %}

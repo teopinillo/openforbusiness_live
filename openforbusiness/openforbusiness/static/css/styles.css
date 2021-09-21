@@ -66,7 +66,7 @@ post-entry h2 a:hover {
     border-radius: 4px;
     box-sizing: border-box;
     margin: auto;
-    max-width: 450px;
+    max-width: 400px;
     overflow: hidden;
 }
 
@@ -173,7 +173,8 @@ h1 {
 
 .b_card{
     display:grid;
-    width:400px;
+    width:auto;
+    max-width:400px;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto auto auto auto;
     grid-template-areas:
@@ -186,10 +187,10 @@ h1 {
     border-color: bisque;
     background-color: beige;
     border-radius: 5px;
-    margin: 10px;
+    /*margin: 10px;*/
     border-style: solid;
     border-width: 2px;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 .b_name {
@@ -223,4 +224,18 @@ h1 {
     background-color: rgb(207, 209, 202);
     grid-area:b_address;
     padding-left: 3px;
+}
+
+.business_form {
+    margin : 10px;
+}
+
+#data_input {
+    width : auto;
+    max-width : 400px;
+}
+
+#card_style {
+    width:320px;
+    margin-bottom: 10px;
 }

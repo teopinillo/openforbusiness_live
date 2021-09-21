@@ -1,5 +1,5 @@
-# Project Openforbussines
-Capstone project for the CS50 Web Programming with Python and JavaScript
+# /Project Openforbussines
+Capstone project for the CS50 Web Programming with Python and JavaScript/
 
 This project will help small bussines to create a web page an a easy way
 
@@ -58,3 +58,7 @@ add field for bussines:
   $ python manage.py loaddata sites/fixtures/color_scheme_data.json
 
 
+  9/21/2021
+
+  Font Awesome 4
+  https://fontawesome.com/v4.7/icons/

@@ -1,21 +1,15 @@
 # ------ SITES APP -----------
-
-from sites.models import BusinessIcon
 from django.shortcuts import redirect, render
 #from django.contrib.auth.decorators import login_required
 from . models import Business, ColorScheme
+from . forms import BusinessForm
 from django.core.paginator import Paginator
+from django.urls import reverse
 
 
 # Create your views here.
 def plan_a (request):    
     return render (request,"plan_a.html")
-
-def icons (request):
-    business_icons = BusinessIcon.objects.all()
-    context = {'business_icons': business_icons}
-    
-    return render (request,'icons.html', context)
 
 #@login_required
 def listed (request):
@@ -27,18 +21,57 @@ def index (request):
     #    Paginator setup for posts
     paginator = Paginator(all_business, 12)
     page_number = request.GET.get('page')
-    business = paginator.get_page(page_number)
-    
+    business = paginator.get_page(page_number)    
     context = {"business" : all_business }
     return render (request, 'sites/index.html', context )
 
-def newbusiness (request):
+def newbusiness (request):    
     if request.user.is_authenticated:
-        color_schemes = ColorScheme.objects.all()
-        context = {"colors" : color_schemes }
-        return render (request, 'sites/newbusiness.html', context);
+        if request.method == 'POST':
+            #print (request.POST)            
+            #name = request.POST.get('name')            
+            #description_line_1 = request.POST.get('description1')
+            #description_line2_ = request.POST.get('description2')
+            #card_style = request.POST.get('card_style')
+            #address = request.POST.get('address')
+            #zip = request.POST.get('zip')
+            #phone = request.POST.get('phone')
+            #webiste=request.POST.get('website')
+            #facebook = request.POST.get('facebook')
+            #instagram = request.POST.get('instagram')
+            #tweeter = request.POST.get('tweeter')
+                                #user, name, category, address,z ip_code, phone_number, email, website, card_image, facebook, tweeter, instagram, description1, description2, card_style):
+            #business = Business (user, name, category, address, zip_code, phone_number, email, website, card_image, facebook, tweeter, instagram, description1, description2, card_style)
+            #business.save()
+            print (request.POST)
+            business = Business (user = request.user)            
+            form = BusinessForm (instance = business, data = request.POST)
+            #print ('form: '+ form)
+            if form.is_valid():
+                    form.save()                    
+                    return redirect("index")
+            else:
+                print ("form is not valid!")
+                return render (request, 'sites/error.html',{'form':form} )
+        else:    
+            color_schemes = ColorScheme.objects.all()  
+            form = BusinessForm()
+            context = {"colors" : color_schemes, 'form': form, }
+            return render (request, 'sites/newbusiness.html', context);
     else:
         return redirect (request, "login")
 
+def testcolor (request):
+    if request.method=="GET":
+        print ("get method")
+        color_schemes = ColorScheme.objects.all()
+        context = {"colors" : color_schemes}
+        return render (request, "sites/testcolor.html", context )
+    elif request.method=='POST':
+        print ("post method")
+        print (request.POST)
+        return redirect ( reverse ('index'))
+        
+        
         
         
