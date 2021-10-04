@@ -12,10 +12,10 @@
 </div>
 
 <div id="django_form" class="form-group business_form">
-    <form method="post" action="" class="">
+    <form enctype="multipart/form-data" method="post" id="business_form">
         {% csrf_token %}
         <div class="b_card" id="bCard">
-            <input type="text" class="form-control b_name" id="businessName" name="name" required placeholder="Business Name" style="background : white;">
+            <input type="text" class="form-control b_name" id="businessName" name="name" required placeholder="Business Name" style="background : white; color:green">
 
             <div class="b_card_img" style="background-image: url('../media/business_images/hand_shake.jpg');
                 background-repeat:no-repeat;
@@ -24,26 +24,34 @@
                 text-align: center;
                 margin-top:5px;
                 margin-bottom:5px;">
+                <div class="image-upload">
+                    <label for="id_card_image">
+                        <img class="photo-camera" src="{% static 'img/photo-camera.png' %}" />
+                    </label>
+                    <input name="card_image" id="id_card_image" type="file" accept="image/*" />           
+                </div>
             </div>
-            <div class="b_rating">
-                <span class="fa fa-heart heart"></span>
-                <!--span class="fa fa-heart-o"></!--span-->
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                10
-            </div>
-            <div class="b_line_1">
+
+    <div class="b_rating">
+        <span class="fa fa-heart heart"></span>
+        <!--span class="fa fa-heart-o"></!--span-->
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    10
+                </div>
+            <div class="b_line_1" >
                 <input type="text" class="form-control b_name" id="description1" name="description_line_1" placeholder="description " style="background : white;">
             </div>
-            <div class="b_line_2">
+            <div class="b_line_2" >
                 <input type="text" class="form-control b_name" id="description2" name="description_line_2" placeholder="description " style="background : white;">
             </div>
-            <div class="b_address">
-                <small class="text-muted">business address</small>
-                <small class="text-muted">& phone number</small>
+            <div class="b_address" id="div_address_id" style="">
+                <span id="address_label_id" style="">
+                    business address & phone number
+                </span>
             </div>
         </div>  <!--end of card-->
 
@@ -91,7 +99,7 @@
                         ZIP
                     </span>
                 </div>
-                <input type="text" name="zip_code" id="zip_id" required class="form-control" aria-label="zip code" aria-describedby="basic-addon1">
+                <input type="text" name="zip_code" id="zip_id" class="form-control" aria-label="zip code" aria-describedby="basic-addon1">
             </div>
 
             <!--phone input-->

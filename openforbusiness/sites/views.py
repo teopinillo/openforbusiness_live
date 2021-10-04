@@ -5,6 +5,7 @@ from . models import Business, ColorScheme
 from . forms import BusinessForm
 from django.core.paginator import Paginator
 from django.urls import reverse
+from users.models import CustomUser
 
 
 # Create your views here.
@@ -43,12 +44,15 @@ def newbusiness (request):
                                 #user, name, category, address,z ip_code, phone_number, email, website, card_image, facebook, tweeter, instagram, description1, description2, card_style):
             #business = Business (user, name, category, address, zip_code, phone_number, email, website, card_image, facebook, tweeter, instagram, description1, description2, card_style)
             #business.save()
-            print (request.POST)
-            business = Business (user = request.user)            
-            form = BusinessForm (instance = business, data = request.POST)
-            #print ('form: '+ form)
+            #print (request.POST)
+            #print (request.POST.get("card_image"))
+            
+            #business = Business (user = request.user)
+            form = BusinessForm (request.POST, request.FILES)            
             if form.is_valid():
-                    form.save()                    
+                    business = form.save(commit=False)   
+                    business.user = request.user
+                    business.save()
                     return redirect("index")
             else:
                 print ("form is not valid!")
@@ -57,6 +61,7 @@ def newbusiness (request):
             color_schemes = ColorScheme.objects.all()  
             form = BusinessForm()
             context = {"colors" : color_schemes, 'form': form, }
+            #return render (request, 'sites/simple_input.html', context);
             return render (request, 'sites/newbusiness.html', context);
     else:
         return redirect (request, "login")

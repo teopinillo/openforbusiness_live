@@ -40,7 +40,7 @@ class Business (models.Model):
     name = models.CharField (max_length=250, null=False, blank=False)
     category = models.ForeignKey ('BusinessClasification', on_delete=models.CASCADE)    
     address = models.CharField(max_length=1024,blank=True)
-    zip_code = models.CharField(max_length=12, null=False, blank=False)
+    zip_code = models.CharField(max_length=12, null=True, blank=True)
     phone_number = models.CharField(max_length=15, blank=True) # validators should be a list
     email = models.EmailField(null=True, blank=True, max_length = 254)
     website = models.URLField(null=True, blank="True")    
@@ -68,7 +68,13 @@ class Business (models.Model):
         return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
 
     def get_address (self):
-        return self.address +  self.zip_code
+        a=""
+        if bool(self.address):
+            a = self.address
+        z=""
+        if bool(self.zip_code):
+            z = self.zip_code
+        return a + z
 
     def fullData(self):
         return self.name + " " + self.description_line_1 + " "+  self.description_line_2 + " " + self.category + " "+self.address + " "+self.zip_code

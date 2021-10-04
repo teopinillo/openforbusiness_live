@@ -4,4 +4,4 @@ from sites.models import Business
 class BusinessForm (ModelForm):
     class Meta:
         model = Business
-        exclude = ('user',)
+        exclude = ["user"]

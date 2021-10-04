@@ -1,0 +1,17 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+
+{% block head %}    
+    <script src="{% static 'js/newbusiness.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<h3 class="center">Simple Input</h3>
+
+<form enctype="multipart/form-data" method="post" id="business_form" >
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <input type='submit' value='Save'>
+</form>
+
+{% endblock %}

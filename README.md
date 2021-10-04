@@ -62,3 +62,13 @@ add field for bussines:
 
   Font Awesome 4
   https://fontawesome.com/v4.7/icons/
+
+  9/22/2021
+  Problem: The image to upload with the input is not been saved
+  mirar:
+  https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/
+  https://stackoverflow.com/questions/49096239/django-imagefield-not-uploading-the-image
+
+
+  camera icon
+  <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
