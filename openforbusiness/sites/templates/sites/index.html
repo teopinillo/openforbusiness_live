@@ -12,15 +12,25 @@
                 <h4>{{ b.name }}</h4>
             </div>
 
+            {% if b.use_my_card %}
+            <div class="b_card_img" 
+                style="
+                    height:100%;
+                    background-image: url('../media/{{b.my_card}}');
+                    background-repeat:no-repeat; 
+                    background-size:contain;                    
+                    text-align: center;">                   
+            </div>
+            {% else %}
             <div class="b_card_img" 
                 style="
                     height:100%;
                     background-image: url('../media/{{b.card_image}}');
                     background-repeat:no-repeat; 
                     background-size:contain;                    
-                    text-align: center;"> 
-                    
+                    text-align: center;">                   
             </div>
+            {% endif %} 
             <div class="b_rating">
                 <span class="fa fa-heart heart"></span>
                 <span class="fa fa-heart-o"></span>

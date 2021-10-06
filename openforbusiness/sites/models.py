@@ -54,6 +54,9 @@ class Business (models.Model):
     description_line_2 = models.CharField (null = True, blank=True, max_length = 254)
     card_style = models.ForeignKey ('ColorScheme', on_delete=models.CASCADE, related_name="styles")
     
+    use_my_card = models.BooleanField ( null = False, default= False)
+    my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    
     
     def __str__(self):
         return self.category.name + ' ' + self.name
