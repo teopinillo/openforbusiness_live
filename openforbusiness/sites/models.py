@@ -52,10 +52,11 @@ class Business (models.Model):
 
     description_line_1 = models.CharField (null = True, blank=True, max_length = 254)
     description_line_2 = models.CharField (null = True, blank=True, max_length = 254)
-    card_style = models.ForeignKey ('ColorScheme', on_delete=models.CASCADE, related_name="styles")
-    
+    card_style = models.ForeignKey ('ColorScheme', on_delete=models.CASCADE, related_name="styles")    
     use_my_card = models.BooleanField ( null = False, default= False)
     my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    rating = models.IntegerField (null=False, blank=False, default=0)
+    favorite = models.BooleanField (null=False, blank=False, default=False)
     
     
     def __str__(self):
@@ -79,6 +80,15 @@ class Business (models.Model):
             z = self.zip_code
         return a + z
 
+    #def get_rating (self):
+    #    return range(self.rating)
+    
+    #def get_noRated (self):
+    #    return range(5-self.rating)
+    
+    def getMaxStars(self):
+        return range(1,6);    
+    
     def fullData(self):
         return self.name + " " + self.description_line_1 + " "+  self.description_line_2 + " " + self.category + " "+self.address + " "+self.zip_code
                 

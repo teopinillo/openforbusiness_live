@@ -1,27 +1,30 @@
 {% extends "openforbusiness/layout.html" %}
 {% load static %}
 
+{% block head %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="cards_catalog" >
     {% for b in business %}
 
     <!--card -->    
-        <div class="b_card border-primary mb-3">
-            <div class="b_name">
-                <h4>{{ b.name }}</h4>
-            </div>
-
-            {% if b.use_my_card %}
-            <div class="b_card_img" 
-                style="
-                    height:100%;
+    
+        {% if b.use_my_card %}
+            <div class="border-primary mb-3 custom_card"
+                    style="                    
                     background-image: url('../media/{{b.my_card}}');
                     background-repeat:no-repeat; 
                     background-size:contain;                    
                     text-align: center;">                   
             </div>
             {% else %}
+            <div class="b_card border-primary mb-3">
+            <div class="b_name">
+                <h4>{{ b.name }}</h4>
+            </div>            
             <div class="b_card_img" 
                 style="
                     height:100%;
@@ -30,17 +33,28 @@
                     background-size:contain;                    
                     text-align: center;">                   
             </div>
-            {% endif %} 
-            <div class="b_rating">
-                <span class="fa fa-heart heart"></span>
-                <span class="fa fa-heart-o"></span>
-                <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    10
+            
+            <!-- Favorite & Ratings -->
+            <!--Note: this code is hihly coupled wit the js function setRating, if a new element is added or
+            an old element is removed, the function will stop woring-->
+            <div class="b_rating">                
+                <a href="#" title="favorite">
+                {% if b.favorite %}
+                    <span class="fa fa-heart heart" data-favorite="True"  onclick="setFavorite (this, {{b.id}})"></span>
+                {% else %}
+                    <span class="fa fa-heart-o"     data-favorite="False" onclick="setFavorite (this, {{b.id}})"> </span>
+                {% endif %}    
+                </a>
+                {% for r in b.getMaxStars %}
+                    {% if r <= b.rating %}
+                        <span class="fa fa-star checked" onclick="setRating (this, {{b.id}}, {{r}})"></span>
+                    {% else %}
+                        <span class="fa fa-star" onclick="setRating (this, {{b.id}}, {{r}})"></span>
+                    {% endif %}
+                {% endfor %}                                
             </div>
+            <!-- Favorite and Ratings Ends-->
+
             <div class="b_line_1">
                 {% if b.description_line_1|length  %}
                     {{ b.description_line_1 }}
@@ -55,7 +69,8 @@
                 <small class="text-muted">{{ b.get_address }}</small>
                 <small class="text-muted">{{ b.phone_number }}</small>
             </div>
-        </div>  <!--end of card-->
+        {% endif %} 
+    </div>  <!--end of card-->
 
     {% empty %}
         <p> No business registered yet. </p>

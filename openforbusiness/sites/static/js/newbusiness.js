@@ -12,9 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     description2 = document.getElementById('description2');
     address_label = document.getElementById('address_label_id');
     address_label.style.color = '#e60000';
-    //console.log(divline1)
-    //console.log(divline2)
-        
+            
     eCardStyle.onchange = function () {
         //v = eCardStyle.options[eCardStyle.selectedIndex].value;
         //s = eCardStyle.options[eCardStyle.selectedIndex].text;
@@ -31,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //console.log ("topBackground :" + topBackground);
 
         eCardStyle.style.backgroundColor = middle_back;
-        businessName.style.backgroundColor = top_back;
-        //businessName.style.color = top_text;
+        businessName.style.backgroundColor = top_back;        
         businessName.style.color = bottom_back;
         eCard.style.backgroundColor = middle_back;
         description1.style.backgroundColor = middle_back;

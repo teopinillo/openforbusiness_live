@@ -72,3 +72,8 @@ add field for bussines:
 
   camera icon
   <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+  10/12/2021
+  Implementing 5 star ratings
+  will be a integer from 1 to 5
+  
