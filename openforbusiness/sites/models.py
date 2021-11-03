@@ -56,8 +56,7 @@ class Business (models.Model):
     use_my_card = models.BooleanField ( null = False, default= False)
     my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
     rating = models.IntegerField (null=False, blank=False, default=0)
-    favorite = models.BooleanField (null=False, blank=False, default=False)
-    
+    favorite = models.BooleanField (default=False)
     
     def __str__(self):
         return self.category.name + ' ' + self.name
@@ -92,8 +91,13 @@ class Business (models.Model):
     def fullData(self):
         return self.name + " " + self.description_line_1 + " "+  self.description_line_2 + " " + self.category + " "+self.address + " "+self.zip_code
                 
+# business_obj.liked_by_usres.objects.all()
+# user_object.preferred_business.objects.all()
 
-
+class PersonFavorite (models.Model):
+    person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "preferred_business")
+    favorite = models.ForeignKey (Business, on_delete = models.CASCADE, related_name = "liked_by_users");
+    
 class ColorScheme (models.Model):
     bck_bottom = models.CharField ( default="white", max_length=8 )
     primary_text = models.CharField ( default="black", max_length=8 )
