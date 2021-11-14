@@ -2,7 +2,7 @@ from django.urls import path
 #from .views import SignUpView, show_avatars, change_avatar, set_avatars
 #from django.contrib.auth import views as auth_views
 
-from .views import plan_a, listed, index, newbusiness, testcolor
+from .views import plan_a, listed, index, newbusiness, testcolor, audit
 
 #sites urls
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('', index, name = 'index'),
     path('index', index, name = 'index'),
     path('testcolor',testcolor, name = 'testcolor'),
+    path('audit', audit, name='audit' ),
 ]

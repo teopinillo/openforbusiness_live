@@ -15,7 +15,7 @@ development
 superuser: teopinillo
 pass: entrance9
 
-users: gabriel, akira
+users: gabriel, akira, yirian, thomas, victor, elena, john, silvia, andres
 pass: entrance
 email: @harvard.edu
 
@@ -76,4 +76,16 @@ add field for bussines:
   10/12/2021
   Implementing 5 star ratings
   will be a integer from 1 to 5
+
+11/2/2021
+Coding Favorite
+
+11/6/2021
+ Create an audit page for the data and debug
+
+11/13/2021
+ Show all curent user business
+ 
+ 
+
   

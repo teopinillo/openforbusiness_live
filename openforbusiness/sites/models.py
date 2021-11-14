@@ -17,34 +17,15 @@ class BussinesClasificationForm (ModelForm):
     
     
 class Business (models.Model):  
-    #def __init__(self, user, name, category,address,zip_code,phone_number,email,website,
-                 #card_image, facebook, tweeter, instagram, description1, description2, card_style):
-        #self.user = user
-        #self.name = name
-        #self.category = category
-        #self.address = address
-        #self.zip_code = zip_code
-        #self.phone_number = phone_number
-        #self.email = email
-        #self.webiste = website
-        #self.card_image = card_image
-        #self.facebook = facebook
-        #self.tweeter = tweeter
-        #self.instagram = instagram
-        #self.description1 = description1 
-        #self.description2 = description2
-        #self.card_style = card_style
-        
-
-    user = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="all_business")
+    owner = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="all_business")
     name = models.CharField (max_length=250, null=False, blank=False)
-    category = models.ForeignKey ('BusinessClasification', on_delete=models.CASCADE)    
+    category = models.ForeignKey ('BusinessClasification', on_delete=models.CASCADE, default = 1)    
     address = models.CharField(max_length=1024,blank=True)
     zip_code = models.CharField(max_length=12, null=True, blank=True)
     phone_number = models.CharField(max_length=15, blank=True) # validators should be a list
     email = models.EmailField(null=True, blank=True, max_length = 254)
     website = models.URLField(null=True, blank="True")    
-    card_image = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    card_image = models.ImageField (null=True, blank=True, upload_to = "business_images/", default="business_images/hand_shake.jpg")
        
     facebook = models.CharField (null = True, blank=True, max_length = 254)
     tweeter = models.CharField (null = True, blank=True, max_length = 254)
@@ -55,7 +36,7 @@ class Business (models.Model):
     card_style = models.ForeignKey ('ColorScheme', on_delete=models.CASCADE, related_name="styles")    
     use_my_card = models.BooleanField ( null = False, default= False)
     my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
-    rating = models.IntegerField (null=False, blank=False, default=0)
+    rating = models.IntegerField (null=True, blank=True, default=0)
     favorite = models.BooleanField (default=False)
     
     def __str__(self):
@@ -76,7 +57,7 @@ class Business (models.Model):
             a = self.address
         z=""
         if bool(self.zip_code):
-            z = self.zip_code
+            z =" " + self.zip_code
         return a + z
 
     #def get_rating (self):

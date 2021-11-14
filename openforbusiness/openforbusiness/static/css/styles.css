@@ -225,9 +225,12 @@ h1 {
     grid-area:b_card_img;   
     border-radius: 5px;    
     position: relative;
+    height: 100%;
+    width: auto;
+    background-repeat:no-repeat; 
+    background-size:contain;
+    text-align: center;
 }
-
-
 
 .b_rating {
     /*background-color: cadetblue;*/
@@ -249,6 +252,8 @@ h1 {
     background-color: rgb(207, 209, 202);
     grid-area:b_address;
     padding-left: 3px;
+    text-align: center;
+    font-size: large;
 }
 
 .business_form {

@@ -12,17 +12,13 @@
 
     <!--card -->    
     
-        {% if b.use_my_card %}
-            <div class="border-primary mb-3 custom_card"
-                    style="                    
-                    background-image: url('../media/{{b.my_card}}');
-                    background-repeat:no-repeat; 
-                    background-size:contain;                    
-                    text-align: center;">                   
-            </div>
-            {% else %}
-            <div class="b_card border-primary mb-3">
-            <div class="b_name">
+    {% if b.use_my_card %}
+        <div class="border-primary mb-3 custom_card"
+                    style="background-image: url('../media/{{b.my_card}}');">                   
+        </div>
+    {% else %}
+        <div class="b_card border-primary mb-3" style="background:{{b.card_style.bck_bottom}}">
+            <div class="b_name" style="background:{{b.card_style.back_top}}">
                 <h4>{{ b.name }}</h4>
             </div>            
             <div class="b_card_img" 
@@ -65,12 +61,13 @@
                     {{ b.description_line_2 }}
                 {% endif %}
             </div>
-            <div class="b_address">
-                <small class="text-muted">{{ b.get_address }}</small>
-                <small class="text-muted">{{ b.phone_number }}</small>
+            <div class="b_address" style="background:{{b.card_style.top_text_secundary}}; color:{{b.card_style.bck_bottom}};">
+                {{ b.get_address }}
+                {{ b.phone_number }}
             </div>
+        </div>
         {% endif %} 
-    </div>  <!--end of card-->
+      <!--end of card-->
 
     {% empty %}
         <p> No business registered yet. </p>

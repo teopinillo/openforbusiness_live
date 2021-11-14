@@ -14,6 +14,9 @@
 <div id="django_form" class="form-group business_form">
     <form enctype="multipart/form-data" method="post" id="business_form">
         {% csrf_token %}
+        <div class="d-none">
+            {{ form.owner }}
+        </div>
         <div class="b_card" id="bCard">
             <input type="text" class="form-control b_name" id="businessName" name="name" required placeholder="Business Name" style="background : white; color:green">
 

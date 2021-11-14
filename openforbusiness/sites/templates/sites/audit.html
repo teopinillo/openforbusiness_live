@@ -1,0 +1,26 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+
+{% block head %}
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+ <h3>Users / Bussiness </h3><hr>
+ <div style="width:50%;">
+ <ul class="list-group" style="text-align:left;">
+ {% for u in users %}
+    <li class="list-group-item list-group-item-primary">{{ u.get_username }} 
+        <ol class="list-group" style="margin-left:50px;text-align:left;">
+        {%for b in business %}
+            {% if b.owner.get_username == u.get_username %}
+                <li class="list-group-item">{{b.name}} </li>
+            {% endif%}
+        {% endfor %}
+        </ol>
+    </li>
+{% endfor %}
+</ul>
+<div>
+{% endblock %}
