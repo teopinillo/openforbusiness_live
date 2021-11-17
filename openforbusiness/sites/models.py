@@ -3,6 +3,7 @@ from django.forms.models import ModelForm
 from users.models import CustomUser
 from django.core.validators import RegexValidator
 from django.conf import settings
+from datetime import datetime
 
 #will be filled only by admin   
 class BusinessClasification (models.Model):
@@ -37,7 +38,12 @@ class Business (models.Model):
     use_my_card = models.BooleanField ( null = False, default= False)
     my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
     rating = models.IntegerField (null=True, blank=True, default=0)
+    #this is a temp filed, used as s flag, for the index view.
+    #we get all the business that has been saved as favorite and filtered by the
+    #current user.
     favorite = models.BooleanField (default=False)
+    #hold the total of reviews for this business
+    reviews = models.IntegerField (default=0)
     
     def __str__(self):
         return self.category.name + ' ' + self.name
@@ -94,4 +100,12 @@ class ColorScheme (models.Model):
 # business
 # image_job_done
 # date
+
+class BusinessReview(models.Model):
+    person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "review_business")
+    review_for = models.ForeignKey (Business, on_delete = models.CASCADE, related_name = "review_by_users");
+    comment = models.CharField (null=False, blank=False, max_length = 255)
+    date = models.DateField (default=datetime.today)
+    score = models.IntegerField(default=0)
+    
 

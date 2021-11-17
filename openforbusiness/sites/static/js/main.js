@@ -25,31 +25,45 @@ function favorite_org(element) {
     return false;
   }
 
-  function setFavorite (element, id ) {
-
-    b_id = id;
-    console.log ('element:'+ element);
-    console.log('id:' + id);
-    favorite = element.dataset.favorite;
+  function setFavorite (element, b_id ) {
+      let favorite = element.dataset.favorite;
     
     if (favorite === "True") {
         element.dataset.favorite = "False";
         element.className = "fa fa-heart-o"; 
+        favorite = "false";        
     } else {
         element.dataset.favorite = "True";      
         element.className = "fa fa-heart heart"; 
+        favorite = "true";
     }
-    /*updateLikes(post_id, set_like).then(result => {
-      //update the total of likes 
-      total_likes_element.innerHTML = result.total_likes;
-  
-    }).catch(error => {
-      console.error(error);
+    updateFavorite (b_id, favorite).then(result => {       
+    }).catch(error => {      
       alert(error);
     });
-    */
     return false;
   }
+
+//favorite: True or False
+async function updateFavorite (business_id, state) {
+  // set the fecth init
+  init = {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-Requested-With': 'XMLHttpRequest', //Necessary to work with request.is_ajax()          
+    },
+    method: 'POST',
+  }
+
+  const fv_url = `/sites/setfavorite/${state}/${business_id}`;
+  console.log(`favorite state url: ${fv_url}`);  
+  const response = await fetch(fv_url, init);
+  //console.log(`fetch response: ${response}`);
+  const json = await response.json();
+  //console.log(`json reponse: ${json}`);
+  return json;
+}
 
   function setRating (element, id, rating){    
     parent = element.parentNode;    
