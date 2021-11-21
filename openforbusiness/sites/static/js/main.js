@@ -86,3 +86,5 @@ async function updateFavorite (business_id, state) {
     }     
     return false;
   }
+
+  

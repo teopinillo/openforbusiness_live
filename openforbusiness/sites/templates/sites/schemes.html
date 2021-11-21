@@ -1,0 +1,25 @@
+{% extends "openforbusiness/layout.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  
+    {% for s in schemes %}
+        <div id="{{s.name}}" class="scheme_card">
+            <div style="background:{{s.bg_top}}; color:{{s.txt_top}}">
+                {{s.name}}
+            </div>
+            <div style="background:{{s.bg_center}}; color:{{s.txt_center}}">
+                Description Line 1
+            </div>
+            <div style="background:{{s.bg_center}}; color:{{s.txt_center}}">
+                Description Line 2
+            </div>
+            <div style="background:{{s.bg_bottom}}; color:{{s.txt_bottom}}">
+                555 555 5555
+            </div>
+        </div>
+    {% endfor %}
+    
+ </div>
+{% endblock %}

@@ -7,13 +7,17 @@
 <div class="reviewcontent">
     <h3 class="center">{{business.name}}</h3>
     <h4 class="center">Customer reviews & ratings</h4>
-    <div><spam style="font-size:72px;">3</spam> out of <spam style="font-size:72px;">5</spam><div>
-    <button type="button" class="btn btn-primary btn-sm">Write a review</button>
-    <hr>
+    <div><spam style="font-size:72px;">{{business.get_rating }}</spam> out of <spam style="font-size:72px;">5</spam><div>
+    <a href="{% url 'test' business.id %}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">Write a review</a>
     
-
+    <hr>
 </div>
-
-<!--List of Business-->
-
+<div>
+    {% for r in reviews %}
+        {{r.date}}
+        {{r.rating}}
+        <p><i>{{r.comment}}<i></p>
+        <br>
+    {% endfor %}
+</div>
 {% endblock %}

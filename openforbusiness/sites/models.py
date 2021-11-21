@@ -4,6 +4,7 @@ from users.models import CustomUser
 from django.core.validators import RegexValidator
 from django.conf import settings
 from datetime import datetime
+from django.db.models import Avg
 
 #will be filled only by admin   
 class BusinessClasification (models.Model):
@@ -42,9 +43,7 @@ class Business (models.Model):
     #we get all the business that has been saved as favorite and filtered by the
     #current user.
     favorite = models.BooleanField (default=False)
-    #hold the total of reviews for this business
-    reviews = models.IntegerField (default=0)
-    
+        
     def __str__(self):
         return self.category.name + ' ' + self.name
 
@@ -71,41 +70,78 @@ class Business (models.Model):
     
     #def get_noRated (self):
     #    return range(5-self.rating)
+    def get_rating (self):
+        avg = self.b_reviews.all().aggregate(Avg('score')).get('score__avg')
+        if (avg):
+            return avg
+        return 0
     
     def getMaxStars(self):
-        return range(1,6);    
+        return range(1, 6);    
     
     def fullData(self):
         return self.name + " " + self.description_line_1 + " "+  self.description_line_2 + " " + self.category + " "+self.address + " "+self.zip_code
-                
-# business_obj.liked_by_usres.objects.all()
-# user_object.preferred_business.objects.all()
+    
+    def getName(self):
+        return self.name
+    
+    def reviews_total(self):
+        total = self.b_reviews.count()
+        return total
+    
+    
 
 class PersonFavorite (models.Model):
     person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "preferred_business")
     favorite = models.ForeignKey (Business, on_delete = models.CASCADE, related_name = "liked_by_users");
     
-class ColorScheme (models.Model):
-    bck_bottom = models.CharField ( default="white", max_length=8 )
-    primary_text = models.CharField ( default="black", max_length=8 )
-    back_top = models.CharField ( default="white", max_length=8 )
-    icons = models.CharField ( default="black", max_length=8 )
-    top_text_secundary = models.CharField ( default="black", max_length=8 )
+class ColorScheme (models.Model):    
+    bg_center = models.CharField ( default="white", max_length=8 )
+    txt_bottom = models.CharField ( default="#000000", max_length=8 )
+    bg_top = models.CharField ( default="white", max_length=8 )
+    icons = models.CharField ( default="#000000", max_length=8 )
+    txt_top = models.CharField ( default="black", max_length=8 )
+    txt_center = models.CharField ( default="#000000", max_length=8 )
+    bg_bottom = models.CharField ( default="#FFFFFF", max_length=8 )
+    
     name = models.CharField ( null=False, blank=False, unique=True, max_length=20 )
     
     def __str__(self):
         return self.name
     
+    
+    
 #job_done
-# business
+# businesss
 # image_job_done
 # date
+SCORE_CHOICES = [
+    ( 1,"*"),
+    ( 2,"**"),
+    ( 3,"***"),
+    ( 4,"****"),
+    ( 5,"*****")
+    ]
 
 class BusinessReview(models.Model):
-    person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "review_business")
-    review_for = models.ForeignKey (Business, on_delete = models.CASCADE, related_name = "review_by_users");
+    person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE)
+    review_for = models.ForeignKey (Business, on_delete = models.CASCADE, related_name="b_reviews");
     comment = models.CharField (null=False, blank=False, max_length = 255)
     date = models.DateField (default=datetime.today)
-    score = models.IntegerField(default=0)
+    score = models.IntegerField(default=0, choices=SCORE_CHOICES)
     
+    def __str__(self):
+        return self.review_for.name +" "+ str(self.score) + " "+ self.comment
+    
+    def rating(self):
+        rate="Terrible"
+        if self.score == 5:
+            rate="Excellent"
+        elif self.score == 4:
+            rate="Vey Good"
+        elif self.score == 3:
+            rate="Average"
+        elif self.score == 2:
+            rate="Poor"        
+        return rate
 

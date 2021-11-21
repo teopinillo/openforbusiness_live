@@ -33,8 +33,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 
 INSTALLED_APPS = [   
     ##user app
-    'users.apps.UsersConfig',    
-    ##crispy_forms
+    'users.apps.UsersConfig',
     'crispy_forms',
     'sites.apps.SitesConfig',
     'django.contrib.admin',

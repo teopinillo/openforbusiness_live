@@ -4,7 +4,7 @@ Capstone project for the CS50 Web Programming with Python and JavaScript/
 This project will help small bussines to create a web page an a easy way
 
 needs to install crispy_forms
-pip install --upgrade django-crispy-forms
+pip install django-crispy-forms
 
 
 development
@@ -85,7 +85,15 @@ Coding Favorite
 
 11/13/2021
  Show all curent user business
- 
+
+
+{% for r in b.getMaxStars %}
+                        {% if r <= b.get_rating %}
+                            <span class="fa fa-star checked"></span>
+                        {% else %}
+                            <span class="fa fa-star"></span>
+                        {% endif %}                        
+                    {% endfor %}
  
 
   

@@ -1,7 +1,18 @@
-from django.forms import ModelForm
-from sites.models import Business
+from django.forms import ModelForm, Textarea
+from sites.models import Business,BusinessReview
 
 class BusinessForm (ModelForm):
     class Meta:
         model = Business
-        exclude = ["user"]
+        exclude = ['owner']
+        
+class ReviewForm (ModelForm):
+    class Meta:
+        model = BusinessReview
+        fields = ['comment','score']
+        widgets = {
+            'comment':Textarea(attrs={'cols':80, 'rows':5}),
+        }
+        
+    
+        

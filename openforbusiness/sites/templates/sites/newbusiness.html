@@ -3,21 +3,24 @@
 
 {% block head %}
 <script src="{% static 'js/newbusiness.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/new_business_style.css' %}">
+
 {% endblock %}
 
 {% block content %}
-<div>
-    <h3 class="center">Test Color</h3>
-</div>
+<div class="container">
+<div class="row">
+    
 
 <div id="django_form" class="form-group business_form">
     <form enctype="multipart/form-data" method="post" id="business_form">
         {% csrf_token %}
-        <div class="d-none">
-            {{ form.owner }}
-        </div>
-        <div class="b_card" id="bCard">
-            <input type="text" class="form-control b_name" id="businessName" name="name" required placeholder="Business Name" style="background : white; color:green">
+        <div class="b_card border-primary mb-3" id="bCard">
+            
+            <!--Business Name Label-->
+            <div id="label_new_name_div" class="b_name" style="background:white; color:black">
+                <h4 id="label_new_name" style="background:white; color:black;">Business Name</h4>
+            </div> 
 
             <div class="b_card_img" style="background-image: url('../media/business_images/hand_shake.jpg');
                 background-repeat:no-repeat;
@@ -34,54 +37,112 @@
                 </div>
             </div>
 
-    <div class="b_rating">
-        <span class="fa fa-heart heart"></span>
-        <!--span class="fa fa-heart-o"></!--span-->
+            
+            <div id="des_ctnr" class="business_description" style="background:lightgreen;">
+                <div class="b_rating">
+                    <span id="heart" class="fa fa-heart heart"></span>        
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span>
-                    10
+                                (10 reviews)
                 </div>
-            <div class="b_line_1" >
-                <input type="text" class="form-control b_name" id="description1" name="description_line_1" placeholder="description " style="background : white;">
-            </div>
-            <div class="b_line_2" >
-                <input type="text" class="form-control b_name" id="description2" name="description_line_2" placeholder="description " style="background : white;">
-            </div>
+                <div class="b_line_1" style="background : white;" id="description1">
+                    Line 1
+                </div>
+                <div class="b_line_2" style="background : white;" id="description2">
+                    Line 2
+                </div>
+            </div> <!--Business description-->
+
             <div class="b_address" id="div_address_id" style="">
                 <span id="address_label_id" style="">
-                    business address & phone number
+                    555-555 5555
                 </span>
-            </div>
+            </div> <!--end of phone-->
+
         </div>  <!--end of card-->
-
-        <div>
-            {{form.category.label}}
-            {{form.category}}
-        </div>
+        
         <div id="data_input">
-            <!--Style Input-->
-            <div id="style_input" style="margin-top:5px;">
-                <label for="card_style">Card style:</label>
-                <select name="card_style" required id="card_style" data-background="#343434" style="background: #343434;">
-                    <option value="201" selected>caterpillar</option>
+
+            <!--name-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        Name        
+                    </span>
+                </div>           
+                <input type="text" name="name" id="id_name" 
+                    class="form-control" 
+                    aria-label="name" 
+                    aria-describedby="basic-addon1"
+                    maxlength="250" required=""
+                    onKeyUp="changeLabelName(this,'label_new_name');" >
+            </div>
+
+            <!--Category-->
+            <div class="input-group mb-3">   
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                </div>         
+                {{form.category}}
+            </div>
+
+            <!--Card Style-->
+            <div class="input-group mb-3"> 
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="card_style">Styles</label>
+                </div>
+                <select name="card_style" required id="card_style" data-background="#343434" style="background: #343434;">                    
                     {% for color in colors %}
-
                     <option id="option-{{color.pk}}" value={{ color.pk }}
-                            style="background:{{color.bck_bottom}};color:{{ color.top_text_secundary}};"
-                            data-background={{color.bck_bottom}}
-                            data-topbackground={{color.back_top}}
-                            data-text={{color.primary_text}}
-                            data-bottombackground={{color.top_text_secundary }}
-                            data-iconscolor={{color.icons}}>
+                            style="background:{{color.bg_top}};color:{{ color.txt_top}};"
+                            
+                            data-bg_top={{color.bg_top}}
+                            data-txt_top={{color.txt_top}}
+                            
+                            data-bg_center={{color.bg_center}}
+                            data-txt_center={{color.txt_center}}
+                            
+                            data-bg_bottom={{color.bg_bottom }}
+                            data-txt_bottom={{color.txt_bottom }}
 
+                            data-iconscolor={{color.icons}}>
                         {{color.name}}
                     </option>
                     {% endfor %}
-
                 </select>
+            </div>
+
+            <!--line 1-->
+            <div class="input-group mb-3 b_line_1">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        Line 1       
+                    </span>
+                </div>           
+                <input type="text" name="description1" id="description_line_1" 
+                    class="form-control" 
+                    aria-label="description1" 
+                    aria-describedby="basic-addon1"
+                    maxlength="50"
+                    onKeyUp="changeLabelName (this,'description1');" >
+            </div>
+
+            <!--line 1-->
+            <div class="input-group mb-3 b_line_2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        Line 2       
+                    </span>
+                </div>           
+                <input type="text" name="description2" id="description_line_2" 
+                    class="form-control" 
+                    aria-label="description2" 
+                    aria-describedby="basic-addon1"
+                    maxlength="50"
+                    onKeyUp="changeLabelName (this,'description2');" >
             </div>
 
             <!--address input-->
@@ -142,11 +203,12 @@
                 </div>
                 <input type="text" name="tweeter" id="tweeter_id" class="form-control" placeholder="tweeter" aria-label="Tweeter" aria-describedby="basic-addon4">
             </div>
-            <input type='submit' value='Save'>
-        </div> <!--data input-->
+            <input class="btn btn-primary" type='submit' value='Save'>
+        </div><!--data input-->
     </form>
 
 </div>
-
+</div> <!--row-->
+</div> <!--container-->
 <!--List of Business-->
 {% endblock %}
