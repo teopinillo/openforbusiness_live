@@ -6,31 +6,38 @@ document.addEventListener('DOMContentLoaded', function() {
     eCard = document.getElementById('bCard');
     businessName = document.getElementById('label_new_name');
     business_name_cont = document.getElementById('label_new_name_div');
+    input_img_cntr = document.getElementById('input_img_cntr');
+
+    pre_fst_ph = document.getElementById('phone_1_pre');    
+    pre_snd_ph = document.getElementById('phone_2_pre');
 
     eCardStyle = document.getElementById('card_style');
-    eCardStyle.style.backgroundColor = document.getElementById('option-201').style.backgroundColor;
-
+    
     divAddress = document.getElementById('div_address_id');
-    description1 = document.getElementById('description1');
-    description2 = document.getElementById('description2');
+    services1 = document.getElementById('services_1');
+    services2 = document.getElementById('services_2');
+    services3 = document.getElementById('services_3');
+    services4 = document.getElementById('services_4');
+
     des_ctnr = document.getElementById('des_ctnr');
-    address_label = document.getElementById('address_label_id');
-    address_label.style.color = '#e60000';    
-    eCardStyle.onchange= showCardStyle;   
+    phone_ctr = document.getElementById('phone_ctnr');  
+    pre_reviews = document.getElementById('pre_reviews');     
+    showCardStyle (eCardStyle);   
  }
  )
 
- let showCardStyle = function () {
-    bg_top = this.options[this.selectedIndex].dataset.bg_top;
-    txt_top = this.options[this.selectedIndex].dataset.txt_top;
+ let showCardStyle = function ( element ) {
+    
+    bg_top = element.options[element.selectedIndex].dataset.bg_top;    
+    txt_top = element.options[element.selectedIndex].dataset.txt_top;
     //center
-    bg_center = this.options[this.selectedIndex].dataset.bg_center;    
-    txt_center = this.options[this.selectedIndex].dataset.txt_center;
+    bg_center = element.options[element.selectedIndex].dataset.bg_center;    
+    txt_center = element.options[element.selectedIndex].dataset.txt_center;
     //bottom
-    bg_bottom = this.options[this.selectedIndex].dataset.bg_bottom;
-    txt_bottom = this.options[this.selectedIndex].dataset.txt_bottom;
+    bg_bottom = element.options[element.selectedIndex].dataset.bg_bottom;
+    txt_bottom = element.options[element.selectedIndex].dataset.txt_bottom;
 
-    iconsColor  = this.options[this.selectedIndex].dataset.iconscolor;
+    iconsColor  = element.options[element.selectedIndex].dataset.iconscolor;
     
     //card style selector
     eCardStyle.style.backgroundColor = bg_top;
@@ -43,18 +50,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //center
     des_ctnr.style.backgroundColor = bg_center;
-    description1.style.backgroundColor = bg_center;
-    description1.style.color = txt_center;
-    description2.style.backgroundColor = bg_center;
-    description2.style.color = txt_center;
+    input_img_cntr.style.backgroundColor = bg_center;
+    pre_reviews.style.color = txt_center;
+    pre_fst_ph.style.color = txt_bottom;
+    pre_snd_ph.style.color = txt_bottom;
 
-    //bottom
-    divAddress.style.backgroundColor = bg_bottom;
-    address_label.style.color = txt_bottom;
+    changeColor (services1, txt_center, bg_center);
+    changeColor (services2, txt_center, bg_center);
+    changeColor (services3, txt_center, bg_center);
+    changeColor (services4, txt_center, bg_center);
+
+    //phones container
+    changeColor (phone_ctrn, txt_bottom, bg_bottom);    
 }
 
-function changeLabelName ( element, container){
-    let txt = element.value;
-    console.log(`txt: ${txt}`);
-    document.getElementById(container).textContent = txt;    
+function changeLabelName ( element, container){    
+    document.getElementById(container).innerText = element.value;   
+}
+
+function changeColor (element, txt_color, bg_color){
+    element.style.backgroundColor = bg_color;
+    element.style.color = txt_color;
 }

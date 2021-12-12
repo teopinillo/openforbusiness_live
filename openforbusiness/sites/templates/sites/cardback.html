@@ -1,0 +1,39 @@
+<div class="card_back border-primary hide" id="card_back_{{biz.id}}">
+	<!--header-->
+	<div class="center_txt flip_cursor" onclick="flipCard('{{biz.id}}')" style="background:{{biz.card_style.bg_top}}; color:{{biz.card_style.txt_top}}">            
+		<h4>{{ biz.name }}</h4>
+	</div>
+	
+	<!--content-->
+	<div  style="background:{{biz.card_style.bg_center}}; color:{{biz.card_style.txt_center}}">  
+        <div class="center_txt">          
+		{% if biz.address|length %}
+			{{biz.addess}}{{biz.zip_code}}
+		{% else %}
+			&nbsp;
+		{% endif %}
+        </div>
+
+        <div class="center_txt">
+		{% if biz.email|length %}
+			<a href="mailto:{{biz.email}}">{{biz.email}}</a>
+		{% else %}
+			&nbsp;
+		{% endif %}			
+        </div>
+
+        <div class="center_txt">
+		{% if biz.website|length %}
+			<a href="{{biz.website}}" target="_blank">{{biz.website}}</a>
+		{% else %}
+			&nbsp;
+		{% endif %} 
+        </div>           
+    </div>
+	
+	<!--footer-->
+	<div style="background:{{biz.card_style.bg_bottom}}; color:{{biz.card_style.txt_bottom}};" class="center_txt">
+		SOCIAL MEDIA
+	</div>
+	
+</div>

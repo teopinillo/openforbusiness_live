@@ -2,80 +2,15 @@
 {% load static %}
 
 {% block head %}
-<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/sites.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
 <div class="cards_catalog" >
-    {% for b in business %}
-
-    <!--card -->    
+    {% for biz in business %}
+    {% include 'sites/card.html' %}
     
-    {% if b.use_my_card %}
-        <div class="border-primary mb-3 custom_card"
-                    style="background-image: url('../media/{{b.my_card}}');">                   
-        </div>
-    {% else %}
-        <div class="b_card border-primary mb-3">
-            
-            <div class="b_name" style="background:{{b.card_style.bg_top}}; color={{b.card_style.txt_top}}">            
-                {% if editable %}
-                    <a href="#" id="editlink" style="color:{{b.card_style.txt_top}};">
-                        <h4>{{ b.name }} <i class="fa fa-pencil-square-o" aria-hidden="true"></i></h4>
-                    </a>
-                {% else %}
-                    <h4>{{ b.name }}</h4>
-                {%endif %}
-                
-            </div>      
-
-           <!--img as background-->
-            <div class="img_container">
-                <img class="business_img" src="../media/{{b.card_image}}" alt="image">
-            </div>
-            
-            <div class="business_description">
-                <!-- Favorite & Ratings -->
-                <!--Note: this code is highly coupled wit the js function setRating, if a new element is added or
-                an old element is removed, the function will stop working-->
-                <div class="b_rating" style="color:{{b.card_style.icons}};">  
-                    <!--only authenticated users can select a business as a favorite -->
-                    {% if user.is_authenticated %}              
-                        <a href="#" title="favorite">
-                        {% if b.favorite %}
-                            <span class="fa fa-heart heart" data-favorite="True"  onclick="return setFavorite (this, {{b.id}} )"></span>
-                        {% else %}
-                            <span class="fa fa-heart-o"     data-favorite="False" onclick="return setFavorite (this, {{b.id}} )"> </span>
-                        {% endif %}    
-                        </a>
-                    {% endif %}
-                    {% for r in b.getMaxStars %}
-                        {% if r <= b.get_rating %}
-                            <span class="fa fa-star checked"></span>                        
-                        {% endif %}                        
-                    {% endfor %}   
-                    <a href="{% url 'reviews' b.id %}" class="reviews">({{b.reviews_total}} reviews)</a>
-                </div>
-                <!-- Favorite and Ratings Ends-->
-                    <div class="b_line_1" style="color:{{b.card_style.txt_center}};">
-                        {% if b.description_line_1|length  %}
-                            {{ b.description_line_1 }}
-                        {% endif %}                
-                    </div>
-                    <div class="b_line_2" style="color:{{b.card_style.txt_center}};">
-                        {% if b.description_line_1|length  %}
-                            {{ b.description_line_2 }}
-                        {% endif %}
-                    </div>
-            </div> <!--business description-->
-
-            <div class="b_address" style="background:{{b.card_style.bg_bottom}};"> 
-                <a href="tel:{{ b.phone_number }}" style="color:{{b.card_style.bg_bottom}}; color:{{b.card_style.txt_bottom}};"> {{ b.phone_number }}</a>
-            </div>
-        </div>
-        {% endif %} 
-      <!--end of card-->
 
     {% empty %}
         <p> No business registered yet. </p>

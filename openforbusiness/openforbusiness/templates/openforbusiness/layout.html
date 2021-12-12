@@ -16,7 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
-     <link rel="icon" type="image/ico" href="{% static 'favicon.ico' %}" />
+     <link rel="icon" type="image/ico" href="{% static 'images/favicon.ico' %}" />
 
     {% block head %}
     {% endblock %}
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'index' %}">
-                <img class="logo" src="{% static 'lteo_logo.png' %}" alt="LOGO">
+                <img class="logo" src="{% static 'images/lteo_logo.png' %}" alt="LOGO">
             </a>
             <button class="navbar-toggler" gg type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -127,6 +127,25 @@
             {{ message | safe }}
         </div>
         {% endfor %}
+
+        {% if form.errors %}
+            <div class="alert alert-error">
+            <h3>Please fix the following errors</h3>
+            <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                    <li><a href="#id_{{ field.name }}" class="error">{{ error|escape }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                {% endfor %}
+            </ul>
+            {% if form.non_field_errors %}
+                {{ form.non_field_errors }}
+            {% endif %}
+            </div>
+        {% endif %}
+
     </div>
     <hr>
 

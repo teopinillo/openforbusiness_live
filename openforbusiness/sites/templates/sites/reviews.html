@@ -8,7 +8,7 @@
     <h3 class="center">{{business.name}}</h3>
     <h4 class="center">Customer reviews & ratings</h4>
     <div><spam style="font-size:72px;">{{business.get_rating }}</spam> out of <spam style="font-size:72px;">5</spam><div>
-    <a href="{% url 'test' business.id %}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">Write a review</a>
+    <a href="{% url 'new_review' business.id %}" class="btn btn-primary btn-sm" role="button" aria-disabled="true">Write a review</a>
     
     <hr>
 </div>

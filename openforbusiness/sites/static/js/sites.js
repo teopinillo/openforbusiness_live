@@ -87,4 +87,12 @@ async function updateFavorite (business_id, state) {
     return false;
   }
 
+  function flipCard( biz_id ){
+    console.log ("card flipped: " + biz_id);
+    front = document.getElementById ("card_front_"+ biz_id);
+    back =  document.getElementById ("card_back_"+ biz_id);
+    front.classList.toggle ("hide");
+    back.classList.toggle("hide");
+
+  }
   

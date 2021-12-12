@@ -32,7 +32,7 @@ def index (request):
             
     all_business = Business.objects.all()    
     #    Paginator setup for posts
-    paginator = Paginator(all_business, 12)
+    paginator = Paginator(all_business, 6)
     page_number = request.GET.get('page')
     business = paginator.get_page(page_number)    
     context = {"business" : all_business, "editable": False }
@@ -43,7 +43,9 @@ def myfavorites (request):
     context = {"business" : preferred }
     return render (request, 'sites/index.html', context )
 
-def newbusiness (request):    
+def newbusiness (request):   
+    color_schemes = ColorScheme.objects.all()
+    form = BusinessForm()
     if request.user.is_authenticated:
         if request.method == 'POST':
             business = Business(owner=request.user)
@@ -51,13 +53,10 @@ def newbusiness (request):
             if form.is_valid():                    
                     form.save()
                     return redirect("index")            
-        else:    
-            form = BusinessForm()
-        color_schemes = ColorScheme.objects.all()
         context = {"colors" : color_schemes, 'form': form }            
         return render (request, 'sites/newbusiness.html', context);
     else:
-        return redirect ("")
+        return redirect ("login")
    
 def audit (request):
     all_users = CustomUser.objects.all();
@@ -99,9 +98,6 @@ def reviews (request, business_id):
     return render (request, "sites/reviews.html", context)
 
 def new_review (request, business_id):
-    pass
-
-def test (request, business_id):
     if request.user.is_authenticated:
         business = Business.objects.get(pk=business_id)
         if request.method == 'POST':
@@ -118,18 +114,26 @@ def test (request, business_id):
             'form':form
             }
         return render (request, "sites/new_review.html", context)            
-    return redirect('')
-    
+    return redirect('login')
+   
     
 def colorscheme (request):
     schemes = ColorScheme.objects.all()
     return render(request,'sites/schemes.html', {'schemes':schemes})
 
 #11/20/2021
-def update (request, biz_id):
-    if request.method=='POST':        
-        biz = Business.objects.get (pk = biz_id )
-        context = {"business":biz}
+def updatebiz (request, biz_id):
+    color_schemes = ColorScheme.objects.all()
+    biz = Business.objects.get (pk = biz_id )
+    form = BusinessForm(instance=biz)
+    
+    if request.method=='POST':       
+        form = BusinessForm(request.POST, request.FILES, instance=biz)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+        
+    context = {"biz":biz, "form":form,"colors" : color_schemes}
     return render (request, 'sites/newbusiness.html', context);
     
  

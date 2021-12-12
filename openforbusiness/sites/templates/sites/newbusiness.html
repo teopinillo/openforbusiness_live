@@ -9,61 +9,16 @@
 
 {% block content %}
 <div class="container">
-<div class="row">
-    
+    <div class="row">
+    {% include 'sites/previewcard.html' %}
+    </div>
+</div>
 
-<div id="django_form" class="form-group business_form">
+<div class="container">
+    <div class="row">
+    <div id="django_form" class="form-group business_form">
     <form enctype="multipart/form-data" method="post" id="business_form">
         {% csrf_token %}
-        <div class="b_card border-primary mb-3" id="bCard">
-            
-            <!--Business Name Label-->
-            <div id="label_new_name_div" class="b_name" style="background:white; color:black">
-                <h4 id="label_new_name" style="background:white; color:black;">Business Name</h4>
-            </div> 
-
-            <div class="b_card_img" style="background-image: url('../media/business_images/hand_shake.jpg');
-                background-repeat:no-repeat;
-                background-size:cover;
-                height: 130px;
-                text-align: center;
-                margin-top:5px;
-                margin-bottom:5px;">
-                <div class="image-upload">
-                    <label for="id_card_image">
-                        <img class="photo-camera" src="{% static 'img/photo-camera.png' %}" />
-                    </label>
-                    <input name="card_image" id="id_card_image" type="file" accept="image/*" />           
-                </div>
-            </div>
-
-            
-            <div id="des_ctnr" class="business_description" style="background:lightgreen;">
-                <div class="b_rating">
-                    <span id="heart" class="fa fa-heart heart"></span>        
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                                (10 reviews)
-                </div>
-                <div class="b_line_1" style="background : white;" id="description1">
-                    Line 1
-                </div>
-                <div class="b_line_2" style="background : white;" id="description2">
-                    Line 2
-                </div>
-            </div> <!--Business description-->
-
-            <div class="b_address" id="div_address_id" style="">
-                <span id="address_label_id" style="">
-                    555-555 5555
-                </span>
-            </div> <!--end of phone-->
-
-        </div>  <!--end of card-->
-        
         <div id="data_input">
 
             <!--name-->
@@ -78,9 +33,19 @@
                     aria-label="name" 
                     aria-describedby="basic-addon1"
                     maxlength="250" required=""
+                    placeholder = "{{biz.name}}"
+                    value = "{{biz.name}}"
                     onKeyUp="changeLabelName(this,'label_new_name');" >
             </div>
 
+            <!--Card Image-->
+            <div >   
+                <div style="background-color: lightgray;margin-bottom:5px;">Card Image</div>
+                <div style="margin-bottom:5px;">
+                    {{form.card_image}}
+                </div>
+            </div>
+            <hr>
             <!--Category-->
             <div class="input-group mb-3">   
                 <div class="input-group-prepend">
@@ -90,13 +55,24 @@
             </div>
 
             <!--Card Style-->
-            <div class="input-group mb-3"> 
+                <div class="input-group mb-3"> 
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="card_style">Styles</label>
                 </div>
-                <select name="card_style" required id="card_style" data-background="#343434" style="background: #343434;">                    
+                <select name="card_style" 
+                    required id="card_style" 
+                    data-background="#343434" 
+                    style="background: #343434;"
+                    onchange="showCardStyle (this)"> 
+
                     {% for color in colors %}
-                    <option id="option-{{color.pk}}" value={{ color.pk }}
+                    <option id="option-{{color.pk}}" 
+                            value={{ color.pk }}
+
+                            {% if biz.card_style.id == color.pk%}
+                                selected
+                            {% endif %}
+
                             style="background:{{color.bg_top}};color:{{ color.txt_top}};"
                             
                             data-bg_top={{color.bg_top}}
@@ -116,33 +92,71 @@
             </div>
 
             <!--line 1-->
-            <div class="input-group mb-3 b_line_1">
+            <div class="input-group mb-3 b_line_2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
                         Line 1       
                     </span>
                 </div>           
-                <input type="text" name="description1" id="description_line_1" 
+                <input type="text" name="services_1" id="id_services_1" 
                     class="form-control" 
-                    aria-label="description1" 
+                    aria-label="service" 
                     aria-describedby="basic-addon1"
                     maxlength="50"
-                    onKeyUp="changeLabelName (this,'description1');" >
+                    placeholder = "service"
+                    value= "{{biz.services_1}}"
+                    onKeyUp="changeLabelName (this,'services_1');" >
             </div>
 
-            <!--line 1-->
+            <!--line 2-->
             <div class="input-group mb-3 b_line_2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">
                         Line 2       
                     </span>
                 </div>           
-                <input type="text" name="description2" id="description_line_2" 
+                <input type="text" name="services_2" id="id_services_2" 
                     class="form-control" 
-                    aria-label="description2" 
+                    aria-label="service" 
                     aria-describedby="basic-addon1"
                     maxlength="50"
-                    onKeyUp="changeLabelName (this,'description2');" >
+                    placeholder = "service"
+                    value= "{{biz.services_2}}"
+                    onKeyUp="changeLabelName (this,'services_2');" >
+            </div>
+
+            <!--line 3-->
+            <div class="input-group mb-3 b_line_2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        Line 3       
+                    </span>
+                </div>           
+                <input type="text" name="services_3" id="id_services_3" 
+                    class="form-control" 
+                    aria-label="service" 
+                    aria-describedby="basic-addon1"
+                    maxlength="50"
+                    placeholder = "service"
+                    value= "{{biz.services_3}}"
+                    onKeyUp="changeLabelName (this,'services_3');" >
+            </div>
+
+            <!--line 4-->
+            <div class="input-group mb-3 b_line_2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        Line 4       
+                    </span>
+                </div>           
+                <input type="text" name="services_4" id="id_services_4" 
+                    class="form-control" 
+                    aria-label="service" 
+                    aria-describedby="basic-addon1"
+                    maxlength="50"
+                    placeholder = "service"
+                    value= "{{ biz.services_4|default_if_none:"" }}"
+                    onKeyUp="changeLabelName (this,'services_4');" >
             </div>
 
             <!--address input-->
@@ -152,7 +166,12 @@
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                     </span>
                 </div>
-                <input type="text" name="address" id="address_id" class="form-control" placeholder="business address" aria-label="business address" aria-describedby="basic-addon1">
+                <input type="text" name="address" id="address_id" 
+                    class="form-control" 
+                    placeholder="business address" 
+                    value = "{{biz.addess}}"
+                    aria-label="business address" 
+                    aria-describedby="basic-addon1">
             </div>
 
             <!--zip input-->
@@ -162,7 +181,12 @@
                         ZIP
                     </span>
                 </div>
-                <input type="text" name="zip_code" id="zip_id" class="form-control" aria-label="zip code" aria-describedby="basic-addon1">
+                <input type="text" name="zip_code" id="zip_id" 
+                    class="form-control" 
+                    placeholder="{{biz.zip_code}}"
+                    value="{{biz.zip_code}}"
+                    aria-label="zip code" 
+                    aria-describedby="basic-addon1">
             </div>
 
             <!--phone input-->
@@ -172,7 +196,48 @@
                         <i class="fa fa-phone-square" aria-hidden="true"></i>
                     </span>
                 </div>
-                <input type="text" name="phone_number" id="phone_id" class="form-control" aria-label="phone" aria-describedby="basic-addon1">
+                <input type="text" name="phone_1" id="phone_1_id" 
+                    class="form-control" 
+                    aria-label="phone" 
+                    placeholder="{{biz.phone_1}}"
+                    value="{{biz.phone_1}}"
+                    aria-describedby="basic-addon1"
+                    onKeyUp="changeLabelName (this,'phone_1_pre');">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-phone-square" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="text" name="phone_2" id="phone_2_id" 
+                    class="form-control" 
+                    aria-label="phone" 
+                    placeholder="{{biz.phone_2}}"
+                    value="{{biz.phone_2}}"
+                    aria-describedby="basic-addon1"
+                    onKeyUp="changeLabelName (this,'phone_2_pre');">
+            </div>
+
+
+             <!--email input-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <input type="email" name="email" id="email_id" 
+                    class="form-control" 
+                    aria-label="email" 
+                    {% if biz.email|length %}
+                        value="{{biz.phone_number}}"
+                    {% else %}
+                        placeholder="Email address"
+                    {% endif %}
+                    
+                    aria-describedby="basic-addon1">
             </div>
 
             <!--website input-->
@@ -180,7 +245,16 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">www</span>
                 </div>
-                <input type="text" name="website" id="website_id" class="form-control" placeholder="website url" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" name="website" id="website_id" 
+                    class="form-control"      
+                    {% if biz.webiste|length %}              
+                        placeholder="{{biz.website}}"
+                        value="{{biz.website}}" 
+                    {% else %}
+                        placeholder="www.yourbusiness.com"
+                    {% endif %}
+                    aria-label="website url" 
+                    aria-describedby="basic-addon1">
             </div>
             <!--facebook input-->
             <div class="input-group mb-3">
@@ -203,8 +277,15 @@
                 </div>
                 <input type="text" name="tweeter" id="tweeter_id" class="form-control" placeholder="tweeter" aria-label="Tweeter" aria-describedby="basic-addon4">
             </div>
-            <input class="btn btn-primary" type='submit' value='Save'>
+            <div id="btn_cnt">
+                <input class="btn btn-primary" type='submit' value='Save'>   
+                <a href="javascript:window.history.back()" class="btn btn-secondary">Cancel</a>         
+            </div>
         </div><!--data input-->
+        
+
+        
+
     </form>
 
 </div>

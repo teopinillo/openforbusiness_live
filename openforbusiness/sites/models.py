@@ -20,24 +20,28 @@ class BussinesClasificationForm (ModelForm):
     
 class Business (models.Model):  
     owner = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="all_business")
-    name = models.CharField (max_length=250, null=False, blank=False)
+    name = models.CharField (max_length=50, null=False, blank=False)
     category = models.ForeignKey ('BusinessClasification', on_delete=models.CASCADE, default = 1)    
     address = models.CharField(max_length=1024,blank=True)
     zip_code = models.CharField(max_length=12, null=True, blank=True)
-    phone_number = models.CharField(max_length=15, blank=True) # validators should be a list
+    phone_1 = models.CharField(max_length=15, blank=True) # validators should be a list
+    phone_2 = models.CharField(max_length=15, blank=True) # validators should be a list
     email = models.EmailField(null=True, blank=True, max_length = 254)
     website = models.URLField(null=True, blank="True")    
-    card_image = models.ImageField (null=True, blank=True, upload_to = "business_images/", default="business_images/hand_shake.jpg")
+    card_image = models.ImageField (null=True, blank=True, upload_to = "images/", default="hand_shake.jpg")
        
     facebook = models.CharField (null = True, blank=True, max_length = 254)
     tweeter = models.CharField (null = True, blank=True, max_length = 254)
     instagram = models.CharField (null = True, blank=True, max_length = 254)
 
-    description_line_1 = models.CharField (null = True, blank=True, max_length = 254)
-    description_line_2 = models.CharField (null = True, blank=True, max_length = 254)
+    services_1 = models.CharField (null = True, blank=True, max_length = 50)
+    services_2 = models.CharField (null = True, blank=True, max_length = 50)
+    services_3 = models.CharField (null = True, blank=True, max_length = 50)
+    services_4 = models.CharField (null = True, blank=True, max_length = 50)
+    
     card_style = models.ForeignKey ('ColorScheme', on_delete=models.CASCADE, related_name="styles")    
     use_my_card = models.BooleanField ( null = False, default= False)
-    my_card = models.ImageField (null=True, blank=True, upload_to = "business_images/")
+    my_card = models.ImageField (null=True, blank=True, upload_to = "images/" )
     rating = models.IntegerField (null=True, blank=True, default=0)
     #this is a temp filed, used as s flag, for the index view.
     #we get all the business that has been saved as favorite and filtered by the
@@ -45,7 +49,7 @@ class Business (models.Model):
     favorite = models.BooleanField (default=False)
         
     def __str__(self):
-        return self.category.name + ' ' + self.name
+        return self.name
 
     def get_facebook_link (self):
         return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
@@ -65,11 +69,6 @@ class Business (models.Model):
             z =" " + self.zip_code
         return a + z
 
-    #def get_rating (self):
-    #    return range(self.rating)
-    
-    #def get_noRated (self):
-    #    return range(5-self.rating)
     def get_rating (self):
         avg = self.b_reviews.all().aggregate(Avg('score')).get('score__avg')
         if (avg):
