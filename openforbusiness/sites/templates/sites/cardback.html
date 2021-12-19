@@ -33,7 +33,24 @@
 	
 	<!--footer-->
 	<div style="background:{{biz.card_style.bg_bottom}}; color:{{biz.card_style.txt_bottom}};" class="center_txt">
-		SOCIAL MEDIA
+		
+		{% if biz.facebook|length %}	
+			<a href = "http://www.facebook.com/{{biz.facebook}}">
+				<span class="input-group-text" id="basic-addon2"><i class="fa fa-facebook-official"></i></span>
+			</a>
+		{% endif %}
+		{% if biz.instagram|length %}	
+			<a href = "http://www.instagram.com/{{biz.instagram}}">
+				<span class="input-group-text" id="basic-addon3"><i class="fa fa-instagram"></i></span>
+			</a>
+		{% endif %}
+		{% if biz.tweeter|length %}	
+			<a href = "http://www.tweeter.com/{{biz.tweeter}}">
+				<span class="input-group-text" id="basic-addon4"><i class="fa fa-twitter-square"></i></span>
+			</a>
+		{% endif %}
+		
+		
 	</div>
 	
 </div>

@@ -28,6 +28,7 @@ urlpatterns = [
     path("contact", contact, name="contact"),
     path('admin/', admin.site.urls),
     path('sites/', include ('sites.urls')),
+    path('<str:find>',include ('sites.urls')),
     
 ] 
 

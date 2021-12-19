@@ -12,4 +12,8 @@
 
 #label_new_name {
     margin-top: 5px;
-    }
+}
+
+.input_cntr {
+    display:block;
+}

@@ -51,15 +51,6 @@ class Business (models.Model):
     def __str__(self):
         return self.name
 
-    def get_facebook_link (self):
-        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
-
-    def get_tweeter_link (self):
-        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
-
-    def get_instagram_link (self):
-        return '<a href = "http://www.facebook.com/' + self.facebook +'">' + self.facebook + '</a>'
-
     def get_address (self):
         a=""
         if bool(self.address):
@@ -88,6 +79,30 @@ class Business (models.Model):
         total = self.b_reviews.count()
         return total
     
+    
+        
+    def getWords (self):
+        def formatWord (w):
+            if (w is not None):
+                return (str(w) + " ").upper()
+            else:
+                return ""
+        
+        return  formatWord (self.name) +\
+                formatWord (self.category.name) +\
+                formatWord (self.address) +\
+                formatWord (self.zip_code) +\
+                formatWord (self.phone_1) +\
+                formatWord (self.phone_2)  +\
+                formatWord (self.email)  +\
+                formatWord (self.website)  +\
+                formatWord (self.facebook) +\
+                formatWord (self.tweeter) +\
+                formatWord (self.instagram) +\
+                formatWord (self.services_1) +\
+                formatWord (self.services_2) +\
+                formatWord (self.services_3) + \
+                formatWord (self.services_4)
     
 
 class PersonFavorite (models.Model):

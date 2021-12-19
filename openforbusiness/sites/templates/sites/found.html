@@ -1,0 +1,10 @@
+{% extends "openforbusiness/layout.html" %}
+{% block content %}
+
+<h3>Words on Bussiness </h3><hr>
+{% for w in found %}
+    <p>{{w}}</p>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,89 +1,87 @@
-<!--card -->    
-{% if biz.use_my_card %}
-    <div class="border-primary mb-3 custom_card"
-                style="background-image: url('{{ biz.my_card.url }}');">                   
-    </div>
-{% else %}
-    <div class="b_card border-primary mb-3" id="card_front_{{biz.id}}">            
-        <div class="b_name flip_cursor" onclick="flipCard('{{biz.id}}')" style="background:{{biz.card_style.bg_top}}; color:{{biz.card_style.txt_top}};">            
-            <h4>{{ biz.name }}</h4>
-        </div>      
-
-        <!--card image-->
-        <div class="img_container" style="background:{{biz.card_style.bg_center}};"" >
-            <img class="business_img" src="{{ biz.card_image.url }}" alt="image">
+ 
+    {% if biz.use_my_card %}
+        <div class="border-primary mb-3 custom_card"
+                    style="background-image: url('{{ biz.my_card.url }}');">                   
         </div>
-            
-        <div class="business_description" style="background:{{biz.card_style.bg_center}}";>
-            <!-- Favorite & Ratings -->
-            <!--Note: this code is highly coupled wit the js function setRating, if a new element is added or
-            an old element is removed, the function will stop working-->
-            <div class="b_rating" style="color:{{biz.card_style.icons}};">  
-                <!--only authenticated users can select a business as a favorite -->
-                {% if user.is_authenticated %}              
-                    <a href="#" title="favorite">
-                    {% if biz.favorite %}
-                        <span class="fa fa-heart heart" data-favorite="True"  onclick="return setFavorite (this, {{b.id}} )"></span>
-                    {% else %}
-                        <span class="fa fa-heart-o"     data-favorite="False" onclick="return setFavorite (this, {{b.id}} )"> </span>
-                    {% endif %}    
+    {% else %}
+        <div class="card_front border-primary mb-3" id="card_front_{{biz.id}}">            
+            <div class="b_name flip_cursor" onclick="flipCard('{{biz.id}}')" style="background:{{biz.card_style.bg_top}}; color:{{biz.card_style.txt_top}};">            
+                <h4>{{ biz.name }}</h4>
+            </div>      
+
+            <!--card image-->
+            <div class="img_container" style="background:{{biz.card_style.bg_center}};">
+                <img class="business_img" src="{{ biz.card_image.url }}" alt="image">
+            </div>
+                
+            <div class="business_description" style="background:{{biz.card_style.bg_center}}";>
+                <!-- Favorite & Ratings -->
+                <!--Note: this code is highly coupled wit the js function setRating, if a new element is added or
+                an old element is removed, the function will stop working-->
+                <div class="b_rating" style="color:{{biz.card_style.icons}};">  
+                    <!--only authenticated users can select a business as a favorite -->
+                    {% if user.is_authenticated %}              
+                        <a href="#" title="favorite">
+                        {% if biz.favorite %}
+                            <span class="fa fa-heart heart" data-favorite="True"  onclick="return setFavorite (this, {{b.id}} )"></span>
+                        {% else %}
+                            <span class="fa fa-heart-o"     data-favorite="False" onclick="return setFavorite (this, {{b.id}} )"> </span>
+                        {% endif %}    
+                        </a>
+                    {% endif %}
+                    {% for r in biz.getMaxStars %}
+                        {% if r <= biz.get_rating %}
+                            <span class="fa fa-star checked"></span>                        
+                        {% endif %}                        
+                    {% endfor %}   
+                    <a class="link_review" style="color:{{biz.card_style.txt_center}}" href="{% url 'reviews' biz.id %}" class="reviews">({{biz.reviews_total}} reviews)</a>
+                </div><!-- Favorite and Ratings Ends-->
+
+                <div class="b_line_1 services" style="color:{{biz.card_style.txt_center}};">
+                    {% if biz.services_1|length  %}
+                        {{ biz.services_1 }}
+                    {% endif %}                
+                </div>
+                <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
+                    {% if biz.services_2|length  %}
+                        {{ biz.services_2 }}
+                    {% endif %}
+                </div>
+                <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
+                    {% if biz.services_3 != None  %}
+                        {{ biz.services_3 }}
+                    {% endif %}
+                </div>
+                <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
+                    {{ biz.services_4|default_if_none:"&nbsp;" }}               
+                </div>
+            </div> <!--business description-->
+
+            <div class="card_footer" style="background:{{biz.card_style.bg_bottom}};"> 
+                {% if editable %}
+                    <a href="{% url 'updatebiz' biz.id %}" id="editlink" style="color:{{biz.card_style.txt_bottom}};">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        
+                        <a href="url_to_delete" onclick="return confirm('Are you sure you want to delete this item?');">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
                     </a>
                 {% endif %}
-                {% for r in biz.getMaxStars %}
-                    {% if r <= biz.get_rating %}
-                        <span class="fa fa-star checked"></span>                        
-                    {% endif %}                        
-                {% endfor %}   
-                <a class="link_review" style="color:{{biz.card_style.txt_center}}" href="{% url 'reviews' biz.id %}" class="reviews">({{biz.reviews_total}} reviews)</a>
-            </div><!-- Favorite and Ratings Ends-->
-
-            <div class="b_line_1 services" style="color:{{biz.card_style.txt_center}};">
-                {% if biz.services_1|length  %}
-                    {{ biz.services_1 }}
-                {% endif %}                
-            </div>
-            <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
-                {% if biz.services_2|length  %}
-                    {{ biz.services_2 }}
-                {% endif %}
-            </div>
-            <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
-                {% if biz.services_3 != None  %}
-                    {{ biz.services_3 }}
-                {% endif %}
-            </div>
-            <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
-                {{ biz.services_4|default_if_none:"&nbsp;" }}               
-            </div>
-        </div> <!--business description-->
-
-        <div class="b_address" style="background:{{biz.card_style.bg_bottom}};"> 
-            {% if editable %}
-                <a href="{% url 'updatebiz' biz.id %}" id="editlink" style="color:{{biz.card_style.txt_bottom}};">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    
-                    <a href="url_to_delete" onclick="return confirm('Are you sure you want to delete this item?');">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </a>
-                </a>
-            {% endif %}
-            <a href="tel:{{ biz.phone_number }}" 
-                style="color:{{biz.card_style.txt_bottom}};"> 
-                {{ biz.phone_1 }}
-            </a>
-            {% if biz.phone_2|length%}
-                &bull; 
                 <a href="tel:{{ biz.phone_number }}" 
                     style="color:{{biz.card_style.txt_bottom}};"> 
-                    {{biz.phone_2}}
+                    {{ biz.phone_1 }}
                 </a>
-            {% endif %}
-        </div> <!--ph.-->       
-    </div>
+                {% if biz.phone_2|length%}
+                    &bull; 
+                    <a href="tel:{{ biz.phone_number }}" 
+                        style="color:{{biz.card_style.txt_bottom}};"> 
+                        {{biz.phone_2}}
+                    </a>
+                {% endif %}
+            </div> <!--card-footer-->       
+        </div> <!--card front cntr-->
+        <!--card back section-->
+        {% include 'sites/cardback.html' %} 
+        <!--end card back section-->
+    {% endif %} 
 
-    <!--card back section-->
-    {% include 'sites/cardback.html' %}
-    <!--end card back section-->
-
-{% endif %} 
-      <!--end of card-->

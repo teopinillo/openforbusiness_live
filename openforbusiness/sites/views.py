@@ -21,21 +21,18 @@ def index (request):
     Business.objects.filter(favorite=True).update(favorite=False)
     
     #mark user business's favorites
-    if request.user.is_authenticated:
-        
-        favorites = PersonFavorite.objects.filter ( person = request.user)        
-        
-        for f in favorites.iterator():
-            print (f.favorite.name)
+    if request.user.is_authenticated:        
+        favorites = PersonFavorite.objects.filter ( person = request.user)
+        for f in favorites.iterator():            
             f.favorite.favorite = True
             f.favorite.save()
             
     all_business = Business.objects.all()    
-    #    Paginator setup for posts
-    paginator = Paginator(all_business, 6)
+    #Paginator
+    paginator = Paginator(all_business, 9)
     page_number = request.GET.get('page')
     business = paginator.get_page(page_number)    
-    context = {"business" : all_business, "editable": False }
+    context = {"business" : business, "editable": False }
     return render (request, 'sites/index.html', context )
 
 def myfavorites (request):
@@ -137,3 +134,47 @@ def updatebiz (request, biz_id):
     return render (request, 'sites/newbusiness.html', context);
     
  
+ #12/14/2021
+ #implementing search method
+ # will iterate over each buisiness, and create a string with all fields
+ # then will be used the method ifContain for each word in the find string 
+
+def filter_biz (find):
+    #get all the business
+    business = Business.objects.all();
+    #get all the word to match
+    words = find.upper().split(" ");    
+    result = []
+    for biz in business:
+        bizWords = biz.getWords().split(" ")
+        check = any (item in bizWords for item in words)
+        #result.append(bizWords)
+        if check :
+            result.append(biz)
+    return result
+    
+def search( request ) :    
+    if request.method=='POST':
+        find = request.POST['find']
+        biz = filter_biz(find)
+        #Paginator
+        paginator = Paginator(biz, 9)
+        page_number = request.GET.get('page')
+        business = paginator.get_page(page_number) 
+        context = {"business": business }
+        return render (request, 'sites/index.html', context )
+   
+def url_search (request, find):
+        biz = filter_biz(find)
+        #Paginator
+        paginator = Paginator(biz, 9)
+        page_number = request.GET.get('page')
+        business = paginator.get_page(page_number) 
+        context = {"business": business }
+        return render (request, 'sites/index.html', context )
+
+
+    
+        
+        
+    
