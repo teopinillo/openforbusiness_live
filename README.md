@@ -1,16 +1,19 @@
 # /Project Openforbussines
-Capstone project for the CS50 Web Programming with Python and JavaScript/
-
-This project will help small bussines to create a web page an a easy way
-
-needs to install crispy_forms
-pip install django-crispy-forms
+Capstone project for the CS50 Web Programming with Python and JavaScript
+https://cs50.harvard.edu/web/2020/projects/final/capstone/
 
 
-development
-06/16/2021 Initilizaling the project, creating the users logging pages
-06/25/2021 Creating index page
-06/27/2021 Creating login/register pages
+The intention of this project is to help small bussines to create an online presentation card.
+Also, customers can write and rate the business to help others future customers
+which business to select.
+
+Python Package needed to run this project:
+
+crispy_forms : pip install django-crispy-forms
+pillow : 
+
+https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata
+
 
 superuser: teopinillo
 pass: entrance9
@@ -20,32 +23,6 @@ pass: entrance
 email: @harvard.edu
 
 
-07/09/2021
- Created the sites app
- designing the first blueprint for sites
-
- 07/24/2021
-  Password reset options
-
-08/04/2021
-  from django.contrib.auth.decorators import login_required
-  @login_requiered
-  https://pypi.org/project/django-login-required-middleware/
-
-08/13/2021
-error: "GET /accounts/login/?next=/accounts/login/ HTTP/1.1" 302 0
-solution: remove, from settings middleware:  
-#'login_required.middleware.LoginRequiredMiddleware',
-
-
-09/02/2021
-add field for bussines: 
-  facebook, twitter, instagram
-  description line 1
-  description line 2
-  card imagen
-
-  email,, image1, 2 and 3 could be blank
 
 09/10/2021
   Created a model for styles
@@ -63,37 +40,17 @@ add field for bussines:
   Font Awesome 4
   https://fontawesome.com/v4.7/icons/
 
-  9/22/2021
-  Problem: The image to upload with the input is not been saved
-  mirar:
-  https://docs.djangoproject.com/en/3.2/topics/http/file-uploads/
-  https://stackoverflow.com/questions/49096239/django-imagefield-not-uploading-the-image
+ 
 
 
   camera icon
   <div>Icons made by <a href="" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
-  10/12/2021
-  Implementing 5 star ratings
-  will be a integer from 1 to 5
-
-11/2/2021
-Coding Favorite
-
-11/6/2021
- Create an audit page for the data and debug
-
-11/13/2021
- Show all curent user business
 
 
-{% for r in b.getMaxStars %}
-                        {% if r <= b.get_rating %}
-                            <span class="fa fa-star checked"></span>
-                        {% else %}
-                            <span class="fa fa-star"></span>
-                        {% endif %}                        
-                    {% endfor %}
+
+
+
  
 
   
