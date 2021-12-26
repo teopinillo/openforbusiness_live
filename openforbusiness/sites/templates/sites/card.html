@@ -38,19 +38,13 @@
                 </div><!-- Favorite and Ratings Ends-->
 
                 <div class="b_line_1 services" style="color:{{biz.card_style.txt_center}};">
-                    {% if biz.services_1|length  %}
-                        {{ biz.services_1 }}
-                    {% endif %}                
+                    {{ biz.services_1|default_if_none:"&nbsp;" }}                
                 </div>
                 <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
-                    {% if biz.services_2|length  %}
-                        {{ biz.services_2 }}
-                    {% endif %}
+                    {{ biz.services_2|default_if_none:"&nbsp;" }} 
                 </div>
                 <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
-                    {% if biz.services_3 != None  %}
-                        {{ biz.services_3 }}
-                    {% endif %}
+                    {{ biz.services_3|default_if_none:"&nbsp;" }} 
                 </div>
                 <div class="b_line_2 services" style="color:{{biz.card_style.txt_center}};">
                     {{ biz.services_4|default_if_none:"&nbsp;" }}               

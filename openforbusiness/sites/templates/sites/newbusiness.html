@@ -259,22 +259,43 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-facebook-official"></i></span>
                             </div>
-                            <input type="text" name="facebook" id="facebook_id" class="form-control" placeholder="facebook" aria-label="Facebook" aria-describedby="basic-addon2">
+                            <input type="text" name="facebook" id="facebook_id" 
+                                class="form-control" 
+                                {% if biz.facebook|length %}
+                                    value="{{biz.facebook}}" 
+                                {%endif%}                                
+                                aria-label="Facebook" 
+                                aria-describedby="basic-addon2">
                         </div>
+
                         <!--instagram input-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon3"><i class="fa fa-instagram"></i></span>
                             </div>
-                            <input type="text" name="instagram" id="instagram_id" class="form-control" placeholder="instagram" aria-label="Instagram" aria-describedby="basic-addon3">
+                            <input type="text" name="instagram" id="instagram_id" 
+                                class="form-control" 
+                                {% if biz.instagram|length %}
+                                    value="{{biz.instagram}}" 
+                                {%endif%}
+                                aria-label="Instagram" 
+                                aria-describedby="basic-addon3">
                         </div>
+
+
                         <!--tweeter input-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-twitter-square"></i></span>
                             </div>
-                            <input type="text" name="tweeter" id="tweeter_id" class="form-control" placeholder="tweeter" aria-label="Tweeter" aria-describedby="basic-addon4">
+                            <input type="text" name="twitter" id="tweeter_id" 
+                                class="form-control" 
+                                {% if biz.twitter|length %}
+                                    value="{{biz.twitter}}" 
+                                {%endif%}
+                                aria-label="twitter" aria-describedby="basic-addon4">
                         </div>
+                        
                         <div id="btn_cnt">
                             <input class="btn btn-primary" type='submit' value='Save'>   
                             <a href="javascript:window.history.back()" class="btn btn-secondary">Cancel</a>         

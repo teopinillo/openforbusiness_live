@@ -31,7 +31,7 @@ class Business (models.Model):
     card_image = models.ImageField (null=True, blank=True, upload_to = "images/", default="hand_shake.jpg")
        
     facebook = models.CharField (null = True, blank=True, max_length = 254)
-    tweeter = models.CharField (null = True, blank=True, max_length = 254)
+    twitter = models.CharField (null = True, blank=True, max_length = 254)
     instagram = models.CharField (null = True, blank=True, max_length = 254)
 
     services_1 = models.CharField (null = True, blank=True, max_length = 50)
@@ -80,7 +80,7 @@ class Business (models.Model):
         return total
     
     
-        
+    #function used for search. It willcreate an string with all words in the business model    
     def getWords (self):
         def formatWord (w):
             if (w is not None):
@@ -104,11 +104,12 @@ class Business (models.Model):
                 formatWord (self.services_3) + \
                 formatWord (self.services_4)
     
-
+#track the user favorite business
 class PersonFavorite (models.Model):
     person = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete = models.CASCADE, related_name = "preferred_business")
     favorite = models.ForeignKey (Business, on_delete = models.CASCADE, related_name = "liked_by_users");
-    
+ 
+#Color schemes for cards  
 class ColorScheme (models.Model):    
     bg_center = models.CharField ( default="white", max_length=8 )
     txt_bottom = models.CharField ( default="#000000", max_length=8 )
