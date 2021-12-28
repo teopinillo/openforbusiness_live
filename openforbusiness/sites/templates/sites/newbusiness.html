@@ -180,9 +180,11 @@
                                 </span>
                             </div>
                             <input type="text" name="zip_code" id="zip_id" 
-                                class="form-control" 
-                                placeholder="{{biz.zip_code}}"
-                                value="{{biz.zip_code}}"
+                                class="form-control"
+                                {% if biz.zip_code|length %}              
+                                    placeholder="{{biz.zip_code}}"
+                                    value="{{biz.zip_code}}"
+                                {% endif %}
                                 aria-label="zip code" 
                                 aria-describedby="basic-addon1">
                         </div>
@@ -283,19 +285,19 @@
                         </div>
 
 
-                        <!--tweeter input-->
+                        <!--twitter input-->
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon4"><i class="fa fa-twitter-square"></i></span>
                             </div>
-                            <input type="text" name="twitter" id="tweeter_id" 
+                            <input type="text" name="twitter" id="twitter_id" 
                                 class="form-control" 
                                 {% if biz.twitter|length %}
                                     value="{{biz.twitter}}" 
                                 {%endif%}
                                 aria-label="twitter" aria-describedby="basic-addon4">
                         </div>
-                        
+
                         <div id="btn_cnt">
                             <input class="btn btn-primary" type='submit' value='Save'>   
                             <a href="javascript:window.history.back()" class="btn btn-secondary">Cancel</a>         

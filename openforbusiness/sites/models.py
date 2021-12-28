@@ -97,7 +97,7 @@ class Business (models.Model):
                 formatWord (self.email)  +\
                 formatWord (self.website)  +\
                 formatWord (self.facebook) +\
-                formatWord (self.tweeter) +\
+                formatWord (self.twitter) +\
                 formatWord (self.instagram) +\
                 formatWord (self.services_1) +\
                 formatWord (self.services_2) +\
