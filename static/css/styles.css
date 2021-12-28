@@ -1,0 +1,349 @@
+body {
+    font-family: BogleWeb, Helvetica Neue, Helvetica, Arial, Helvetica, sans-serif;
+    margin : 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.post-entry {
+    margin-bottom: 2rem;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.post-entry h2 {
+    margin: 0.5rem 0;
+}
+
+.post entry h2 a,
+.post-entry h2 a:visited {
+    color: blue;
+    text-decoration: none;
+
+}
+
+post-entry p {
+    margin: 0;
+    font-weight: 400;
+}
+
+post-entry h2 a:hover {
+    color: red;
+}
+
+.body-post {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10%;
+    border-color: cadetblue;
+    background-color: lightgoldenrodyellow
+}
+
+.logo {
+    width: 30%;
+    height: auto;
+}
+
+.newPost {
+    margin: 1%;
+    border: 5px solid rgba(18, 17, 164, 0.22);
+    border-radius: 10px;
+}
+
+.p404 {
+    width: 100%;
+    height: 100%;
+    /*background-image: url('../img/bluevw_old.jpg');*/
+    /*background-image: url('https://dl.dropboxusercontent.com/s/s0tm2sq1nix9i4g/bluevw.jpg?dl=0');*/
+    background-image: url('https://dl.dropboxusercontent.com/s/6hsz3ytdeqqyk9m/bluevw_old.jpg?dl=0');
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    /*padding-top: 66.64%; /* (img-height / img-width * container-width) */
+    /* (853 / 1280 * 100) */
+}
+
+.p404Title {
+    text-align: center;
+}
+
+.contactForm {
+    margin-top: 2rem;
+    background: #f1f1f1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.contactFormHeader {
+    background: purple;
+    border-bottom: 4px solid purple;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    line-height: 1em;
+}
+
+.formBody {
+    margin: 2%;
+}
+
+.contactFormButton {
+    margin-top: 10px;
+}
+
+.passwordChangeHeader {
+    background: purple;
+    border-bottom: 4px solid purple;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.passwordChangeView {
+    margin-top: 2rem;
+    background: #f1f1f1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+.passwordChangeBtnSubmit {
+    margin-top: 10px;
+}
+
+.passwordChangeForm {
+    margin: 2%;
+}
+
+.registerView {
+    margin-top: 2rem;
+    background: #f1f1f1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+.registerForm {
+    margin : 2%;
+}
+
+#passwordResetView {
+    margin-top: 2rem;
+    background: #f1f1f1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: auto;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+
+
+/* used in layout.html to style the avatar */
+.avatar {
+    margin: 5px;
+    border: 2px solid blue;
+    border-radius: 25px;
+    -webkit-box-shadow: 9px 9px 15px -4px rgba(0, 0, 0, 0.43);
+    -moz-box-shadow: 9px 9px 15px -4px rgba(0, 0, 0, 0.43);
+    box-shadow: 9px 9px 15px -4px rgba(0, 0, 0, 0.43);
+    width: 50px;
+    height: 50px;
+}
+
+.center {
+    text-align : center;
+}
+
+.checked {
+    color : orange;
+}
+
+.heart {
+    color : red;
+}
+
+.cards_catalog {
+    display : flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.b_card{
+    display:grid;
+    width:400px;
+    max-width:400px;
+    height:200px;
+    grid-template-columns: 0.8fr 2.2fr;
+    grid-template-rows: 40px auto 40px;
+    grid-template-areas:
+    "b_name b_name"
+    "img_area description"   
+    "b_address b_address";
+    border-style:solid;
+    border-color: bisque;
+    background-color: beige;    
+    margin-right : 10px;
+    position : relative;
+}
+
+.b_name {
+    background-color: white;
+    color: black;
+    grid-area:b_name;
+    text-align: center;
+}
+
+.business_description {
+    grid-area : description;
+}
+
+.b_address{    
+    background-color: white;
+    color : black;
+    grid-area : b_address;    
+    text-align: center;
+    font-size : large;
+}
+
+.custom_card {
+    width:400px;
+    max-width:400px;
+    height:200px;   
+    margin-right: 10px;
+    border-style: solid;
+    border-width: 2px;   
+    background-repeat: no-repeat;    
+    background-size: contain; 
+    background-position: center center;
+    text-align: center;
+}
+
+.img_container {    
+    grid-area : img_area;
+    display: inline-block;    
+    vertical-align: middle;
+    max-height: 115px;
+}
+
+.business_img {
+    height: 100%;
+    max-height: 120px;
+    max-width : 130px;
+    object-fit: contain;    
+}
+
+.b_rating {
+    grid-area:b_rating;
+    padding-left: 3px;
+}
+
+
+.business_form {
+    margin : 10px;
+}
+
+#data_input {
+    width : auto;
+    max-width : 400px;
+}
+
+#card_style {
+    width:320px;
+    margin-bottom: 10px;
+}
+
+.image-upload > input {
+    display: none;
+}
+
+.photo-camera {
+    width : 48px;
+    height : auto;
+    position : absolute;
+    top : 55px;
+    left : 35px;
+}
+
+#div_address_id {
+    text-align:center;
+    /*font-size : 0.9rem;*/
+}
+
+.reviewcontent {
+    margin-left: 10px;
+}
+
+a.reviews {
+    font-size: 12px;
+    color: #2e2f32;
+}
+
+.model_card {
+    margin-bottom: 10px;
+    border-color: black;
+    border-width: 1px;
+    padding : 2px;
+}
+
+.photo-camera {
+    transition: box-shadow .3s;
+}
+
+.photo-camera:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    border-radius:10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer; 
+}
+
+.container {
+    display : flex;
+    gap : 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.scheme_card {
+    text-align: center;
+    background: lightblue;
+    width:300px;
+    margin : 5px;
+}
+
+#editlink a:link {
+    color:inherit;
+ }
+
+#address_label_id {
+    margin-top: 5px;
+}
+
+.services {
+    font-size:small;
+    line-height: 1;
+    text-align:center;
+}
+
+.b_line_1 {    
+    grid-area:b_line_1;
+    padding-left: 3px;
+    font-size: xx-large;
+}
+
+.b_line_2 {
+    margin-top: 10px;
+    grid-area : b_line_2;
+    padding-left: 3px;
+}
