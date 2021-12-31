@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .forms import CustomUserCreationForm
 from .forms import CustomUserChangeForm
-from .models import CustomUser, Avatar
+from .models import CustomUser
 from django.contrib.auth.admin import UserAdmin
 
 class CustomUserAdmin (UserAdmin):
@@ -12,5 +12,5 @@ class CustomUserAdmin (UserAdmin):
     list_editable = ('email','avatar',)
 
 admin.site.register (CustomUser, CustomUserAdmin)
-admin.site.register (Avatar)
+
 

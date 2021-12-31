@@ -10,24 +10,13 @@ avatars are on github, numbered from 000 to nnn
 repository: 
 https://github.com/teopinillo/web-resources/tree/main/avatars
 """
-class Avatar (models.Model):        
-    filenumb = models.PositiveIntegerField(default=randint(0, 624))
-      
-    @property
-    def url(self):
-        # Return's the full url
-        return AVATARS_URL + str(self.filenumb).zfill(4) + ".jpeg"
-
-    def __str__(self):
-        return self.url
-          
+        
 class CustomUser (AbstractUser):
-    avatar = models.ForeignKey (Avatar, on_delete = models.DO_NOTHING, null = True, related_name="avatars")
+    avatar = models.IntegerField (default = 1)
     email = models.EmailField(_('email'), max_length=254, unique=False, null=False, blank=False)
     
-
+    def get_avatar_url (self):
+        return avatar_url (self.avatar)
     
-
-
-
-
+def avatar_url(id):
+        return AVATARS_URL + str(id).zfill(4) + ".jpeg"

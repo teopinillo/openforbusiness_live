@@ -9,10 +9,7 @@
 </div>
 <div class="container2">
   {% for avatar in avatars %}
-  <a href="{% url 'change_avatar' avatar.id %}"><img class="avatar" src="{{ avatar.url }}" alt="avatar"></a>
-
-  {% empty %}
-  <a href="{% url 'set_avatars'%}">No avatars in the base. Click to initialize</a>
+  <a href="{% url 'update_avatar' avatar.id %}"><img class="avatar" src="{{ avatar.url }}" alt="avatar"></a>
   {% endfor %}
 </div>
 {% endblock %}
