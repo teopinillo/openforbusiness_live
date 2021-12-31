@@ -54,20 +54,18 @@ For this project is used Postgree as a database.
 #### Files and Directories
 &#x1f4c2; __/__
 
-BusinessClasification.json  
-
 &#x1f4c2; openforbusiness
 * Pipfile  
 * Pipfile.lock  
 * README.md  
 * requirements.txt  
-&#x1f4c2; static
+* &#x1f4c2; static
 
 &#x1f4c2; ./openforbusiness
 
-* appsecrets.py  
-* BusinessClasification.json  
-* ColorScheme.json  
+* appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
+* BusinessClasification.json  _data to initilizate the database_
+* ColorScheme.json  _data to initilizate the database_
 * manage.py  
 * &#x1f4c2;media  
 * &#x1f4c2;openforbusiness
@@ -79,23 +77,23 @@ BusinessClasification.json
 * asgi.py  
 * \_\_init__.py  
 * settings.py  
-* static  
-* templates 
+* &#x1f4c2; static  
+* &#x1f4c2; templates 
 * urls.py  
 * views.py  
 * wsgi.py
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static
 
-css
-images
-js
+* &#x1f4c2; css
+* &#x1f4c2; images
+* &#x1f4c2; js
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static/css
 
-loginStyles.css  
-new_business_style.css  
-styles.css
+* loginStyles.css  
+* new_business_style.css  
+* styles.css
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static/images
 
@@ -123,8 +121,8 @@ styles.css
 
 * admin.py
 * forms.py
-* [migrations]
-* templates
+* &#x1f4c2; migrations
+* &#x1f4c2; templates
 * urls.py
 * apps.py
 * \_\_init__.py
@@ -140,8 +138,8 @@ styles.css
 
 &#x1f4c2; ./openforbusiness/sites/static
 
-* images
-* js
+* &#x1f4c2; images
+* &#x1f4c2; js
 
 &#x1f4c2; ./openforbusiness/sites/static/images
 
@@ -160,18 +158,18 @@ styles.css
 &#x1f4c2; ./openforbusiness/sites/templates/sites
 
 * audit.html     
-* card.html
-* index.html   
-* newbusiness.html  
+* card.html _card template_
+* index.html   _home page_
+* newbusiness.html  _creating new business page_
 * pagination.html   	&#x1f4cc;_django pagination, html fragment to be included in index html_
-* reviews.html  
-* cardback.html  
-* error.html
+* reviews.html  _reiews page_
+* cardback.html  _back of the card_
+* error.html  _error page_
 * icons.html
-* listed.html
-* new_review.html   
-* previewcard.html  
-* schemes.html
+* listed.html _page for user's business listed_
+* new_review.html   _adding a new review_
+* previewcard.html  _the card that is displayed when enter a new business_
+* schemes.html _page that display all card layouts_
 
 &#x1f4c2; ./openforbusiness/users:
 
@@ -179,10 +177,10 @@ styles.css
 * apps.py  
 * forms.py  
 * \_\_init\_\_.py  
-* migrations  
+* &#x1f4c2; migrations  
 * models.py  
-* static  
-* templates  
+* &#x1f4c2; static  
+* &#x1f4c2; templates  
 * tests.py  
 * urls.py  
 * views.py
@@ -193,9 +191,9 @@ styles.css
 
 &#x1f4c2; ./openforbusiness/users/templates
 
-registration
+* &#x1f4c2; registration
 
-users
+* &#x1f4c2; users
 
 &#x1f4c2; ./openforbusiness/users/templates/registration
 
@@ -213,17 +211,17 @@ users
 
 &#x1f4c2; ./static
 
-* admin
-* css
-* images
-* js
+* &#x1f4c2; admin
+* &#x1f4c2; css
+* &#x1f4c2; images
+* &#x1f4c2; js
 
 &#x1f4c2; ./static/admin _django default directory_
 
-* css		
-* fonts		
-* img
-* js
+* &#x1f4c2; css		
+* &#x1f4c2; fonts		
+* &#x1f4c2; img
+* &#x1f4c2; js
 
 &#x1f4c2; ./static/css
 
@@ -235,7 +233,7 @@ users
 
 * favicon.ico
 * hand_shake.jpg
-* images
+* &#x1f4c2; images
 * lteo_logo.png
 * photo-camera.png
 
