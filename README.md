@@ -19,7 +19,7 @@ The project needs to initialize two tables before starting.
 python manage.py loaddata BusinessClasification.json
 python manage.py loaddata ColorScheme.json
 
-The data was originallu dumped with the commands:
+The data was originally dumped with the commands:
 python manage.py dumpdata sites.BusinessClasification > BusinessClasification.json
 python manage.py dumpdata sites.ColorScheme > ColorScheme.json
 
