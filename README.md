@@ -115,9 +115,9 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static/css
 
-* loginStyles.css  
-* new_business_style.css  
-* styles.css
+* &#x1f3a8;loginStyles.css  
+* &#x1f3a8;new_business_style.css  
+* &#x1f3a8;styles.css
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static/images
 
@@ -229,9 +229,9 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./openforbusiness/users/templates/users
 
-* avatars.html  
-* profile.html  
-* signup.html
+* &#x1f30d;avatars.html  
+* &#x1f30d;profile.html  
+* &#x1f30d;signup.html
 
 &#x1f4c2; ./static
 
@@ -249,9 +249,9 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./static/css
 
-* loginStyles.css
-* new_business_style.css  
-* styles.css
+* &#x1f3a8;loginStyles.css
+* &#x1f3a8;new_business_style.css  
+* &#x1f3a8;styles.css
 
 &#x1f4c2; ./static/images
 
