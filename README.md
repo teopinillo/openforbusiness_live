@@ -6,6 +6,8 @@ The intention of this project is to help small bussines to create an online pres
 Also, customers can write and rate the business to help others future customers
 which business to select.
 
+You can clone this branch with the command:
+`git clone -b web50/projects/2020/x/capstone https://github.com/me50/teopinillo.git`
 
 
 ### Install the packages according to the configuration file
@@ -82,6 +84,10 @@ For this project is used Postgree as a database.
 * README.md   _this file_
 * requirements.txt  _list all the dependencies for the project_
 * &#x1f4c2; static
+  * &#x1f4c2; admin _created by Django by default. Is the admin page_
+  * &#x1f4c2; images _directory for card's presentation images.
+  * &#x1f4c2; js
+
 
 &#x1f4c2; ./openforbusiness
 
