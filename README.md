@@ -16,8 +16,24 @@ To install the packages: *$[ pipenv install](https://pipenv-fork.readthedocs.io/
 ## Initializing the Database.
 The project needs to initialize two tables before starting.
 
+note: postgres should be installed.
+
+```python manage.py makemigrations
+python manage.py migrate
 python manage.py loaddata BusinessClasification.json
-python manage.py loaddata ColorScheme.json
+python manage.py loaddata ColorScheme.json```
+
+## check if migrations are ok
+`python manage.py migrate --check`
+
+## create a superuser
+`python manage.py createsuperuser`
+
+## run the server
+`python manage.py runserver`
+
+## go to admin
+localhost:8000/admin/
 
 The data was originally dumped with the commands:
 python manage.py dumpdata sites.BusinessClasification > BusinessClasification.json
