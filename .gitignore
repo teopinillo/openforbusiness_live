@@ -122,3 +122,8 @@ Pipfile
 Pipfile.lock
 migrations/
 migrations
+
+#deleted files
+_*.*
+#card images
+static/images/images/**
