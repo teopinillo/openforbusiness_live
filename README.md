@@ -78,7 +78,7 @@ For this project is used Postgree as a database.
 &#x1f4c2; __/__
 
 &#x1f4c2; openforbusiness
-  * appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
+  * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
   * ColorScheme.json  _data to initilizate the database_
   * manage.py  
@@ -86,7 +86,7 @@ For this project is used Postgree as a database.
   * &#x1f4c2;openforbusiness
   * &#x1f4c2;sites
   * &#x1f4c2;users
-  
+
 * &#x1f4c2; static
   * &#x1f4c2; admin _created by Django by default. Is the admin page_
   * &#x1f4c2; images _directory for card's presentation images._
@@ -96,22 +96,16 @@ For this project is used Postgree as a database.
 * README.md   _this file_
 * requirements.txt  _list all the dependencies for the project_
 
-
-
-
-
-
-
 &#x1f4c2; ./openforbusiness/openforbusiness
 
-* asgi.py  
-* \_\_init__.py  
-* settings.py  
+* &#x1f40d;asgi.py  
+* \_\_&#x1f40d;init__.py  
+* &#x1f40d;settings.py  
 * &#x1f4c2; static  
 * &#x1f4c2; templates 
-* urls.py  
-* views.py  
-* wsgi.py
+* &#x1f40d;urls.py  
+* &#x1f40d;views.py  
+* &#x1f40d;wsgi.py
 
 &#x1f4c2; ./openforbusiness/openforbusiness/static
 
@@ -143,23 +137,23 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./openforbusiness/openforbusiness/templates/openforbusiness
 
-* about.html
-* contact.html
-* layout.html
+* &#x1f30d;about.html
+* &#x1f30d;contact.html
+* &#x1f30d;layout.html
 
 &#x1f4c2; ./openforbusiness/sites
 
-* admin.py
-* forms.py
+* &#x1f40d;admin.py
+* &#x1f40d;forms.py
 * &#x1f4c2; migrations
 * &#x1f4c2; templates
-* urls.py
-* apps.py
-* \_\_init__.py
-* models.py
+* &#x1f40d;urls.py
+* &#x1f40d;apps.py
+* \_\_&#x1f40d;init__.py
+* &#x1f40d;models.py
 * static
-* tests.py
-* views.py
+* &#x1f40d;tests.py
+* &#x1f40d;views.py
 
 &#x1f4c2; ./openforbusiness/sites/migrations
 
@@ -187,33 +181,33 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./openforbusiness/sites/templates/sites
 
-* audit.html     
-* card.html _card template_
-* index.html   _home page_
-* newbusiness.html  _creating new business page_
-* pagination.html   	&#x1f4cc;_django pagination, html fragment to be included in index html_
-* reviews.html  _reiews page_
-* cardback.html  _back of the card_
-* error.html  _error page_
-* icons.html
-* listed.html _page for user's business listed_
-* new_review.html   _adding a new review_
-* previewcard.html  _the card that is displayed when enter a new business_
-* schemes.html _page that display all card layouts_
+* &#x1f30d;audit.html     
+* &#x1f30d;card.html _card template_
+* &#x1f30d;index.html   _home page_
+* &#x1f30d;newbusiness.html  _creating new business page_
+* &#x1f30d;pagination.html   	&#x1f4cc;_django pagination, html fragment to be included in index html_
+* &#x1f30d;reviews.html  _reiews page_
+* &#x1f30d;cardback.html  _back of the card_
+* &#x1f30d;error.html  _error page_
+* &#x1f30d;icons.html
+* &#x1f30d;listed.html _page for user's business listed_
+* &#x1f30d;new_review.html   _adding a new review_
+* &#x1f30d;previewcard.html  _the card that is displayed when enter a new business_
+* &#x1f30d;schemes.html _page that display all card layouts_
 
 &#x1f4c2; ./openforbusiness/users:
 
-* admin.py  
-* apps.py  
-* forms.py  
+* &#x1f40d;admin.py  
+* &#x1f40d;apps.py  
+* &#x1f40d;forms.py  
 * \_\_init\_\_.py  
 * &#x1f4c2; migrations  
-* models.py  
+* &#x1f40d;models.py  
 * &#x1f4c2; static  
 * &#x1f4c2; templates  
-* tests.py  
-* urls.py  
-* views.py
+* &#x1f40d;tests.py  
+* &#x1f40d;urls.py  
+* &#x1f40d;views.py
 
 &#x1f4c2; ./openforbusiness/users/migrations
 
@@ -227,11 +221,11 @@ For this project is used Postgree as a database.
 
 &#x1f4c2; ./openforbusiness/users/templates/registration
 
-* login.html  
-* password_change_done.html  
-* password_change_form.html  
-* password_reset_done.html  
-* password_reset_form.html
+* &#x1f30d;login.html  
+* &#x1f30d;password_change_done.html  
+* &#x1f30d;password_change_form.html  
+* &#x1f30d;password_reset_done.html  
+* &#x1f30d;password_reset_form.html
 
 &#x1f4c2; ./openforbusiness/users/templates/users
 
@@ -281,7 +275,7 @@ For this project is used Postgree as a database.
 * sites.js
 
 
-teopinillo Dec, 2021
+teopi Oct, 2022
 
 
 
