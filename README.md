@@ -75,9 +75,34 @@ For this project is used Postgree as a database.
   Markup Editor https://markdown-editor.github.io/
 
 #### Files and Directories
-&#x1f4c2; __/__
 
 &#x1f4c2; openforbusiness
+  * &#x1f4c2; openforbusiness
+    * &#x1f4c2; static 
+      * &#x1f4c2; css
+        * &#x1f3a8;loginStyles.css  
+        * &#x1f3a8;new_business_style.css  
+        * &#x1f3a8;styles.css
+      * &#x1f4c2; images
+        * favicon.ico  
+        * lteo_logo.png
+      * &#x1f4c2; js
+        * login.js  
+        * pwdchange.js  
+        * pwdreset.js  
+        * signup.js
+    * &#x1f4c2; templates
+      * &#x1f4c2; openforbusiness
+        * &#x1f30d;about.html
+        * &#x1f30d;contact.html
+        * &#x1f30d;layout.html
+    * &#x1f40d; asgi.py  
+    * &#x1f40d; settings.py
+    * &#x1f40d; urls.py  
+    * &#x1f40d; views.py  
+    * &#x1f40d; wsgi.py
+    * &#x1f40d; __init_.py  
+   
   * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
   * ColorScheme.json  _data to initilizate the database_
@@ -85,6 +110,18 @@ For this project is used Postgree as a database.
   * &#x1f4c2;media  
   * &#x1f4c2;openforbusiness
   * &#x1f4c2;sites
+    * &#x1f40d;admin.py
+    * &#x1f40d;forms.py
+    * &#x1f4c2; migrations _Contain all project’s migrations_
+
+    * &#x1f4c2; templates
+    * &#x1f40d;urls.py
+    * &#x1f40d;apps.py
+    * \_\_&#x1f40d;init__.py
+    * &#x1f40d;models.py
+    * static
+    * &#x1f40d;tests.py
+    * &#x1f40d;views.py
   * &#x1f4c2;users
 
 * &#x1f4c2; static
@@ -95,69 +132,6 @@ For this project is used Postgree as a database.
 * Pipfile.lock  _Has the specific versions for each dependency._
 * README.md   _this file_
 * requirements.txt  _list all the dependencies for the project_
-
-&#x1f4c2; ./openforbusiness/openforbusiness
-
-* &#x1f40d;asgi.py  
-* \_\_&#x1f40d;init__.py  
-* &#x1f40d;settings.py  
-* &#x1f4c2; static  
-* &#x1f4c2; templates 
-* &#x1f40d;urls.py  
-* &#x1f40d;views.py  
-* &#x1f40d;wsgi.py
-
-&#x1f4c2; ./openforbusiness/openforbusiness/static
-
-* &#x1f4c2; css
-* &#x1f4c2; images
-* &#x1f4c2; js
-
-&#x1f4c2; ./openforbusiness/openforbusiness/static/css
-
-* &#x1f3a8;loginStyles.css  
-* &#x1f3a8;new_business_style.css  
-* &#x1f3a8;styles.css
-
-&#x1f4c2; ./openforbusiness/openforbusiness/static/images
-
-* favicon.ico  
-* lteo_logo.png
-
-&#x1f4c2; ./openforbusiness/openforbusiness/static/js
-
-* login.js  
-* pwdchange.js  
-* pwdreset.js  
-* signup.js
-
-&#x1f4c2; ./openforbusiness/openforbusiness/templates
-
-&#x1f4c2; openforbusiness
-
-&#x1f4c2; ./openforbusiness/openforbusiness/templates/openforbusiness
-
-* &#x1f30d;about.html
-* &#x1f30d;contact.html
-* &#x1f30d;layout.html
-
-&#x1f4c2; ./openforbusiness/sites
-
-* &#x1f40d;admin.py
-* &#x1f40d;forms.py
-* &#x1f4c2; migrations
-* &#x1f4c2; templates
-* &#x1f40d;urls.py
-* &#x1f40d;apps.py
-* \_\_&#x1f40d;init__.py
-* &#x1f40d;models.py
-* static
-* &#x1f40d;tests.py
-* &#x1f40d;views.py
-
-&#x1f4c2; ./openforbusiness/sites/migrations
-
- _Contain all project’s migrations_
 
 
 &#x1f4c2; ./openforbusiness/sites/static
