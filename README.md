@@ -78,27 +78,29 @@ For this project is used Postgree as a database.
 &#x1f4c2; __/__
 
 &#x1f4c2; openforbusiness
+  * appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
+  * BusinessClasification.json  _data to initilizate the database_
+  * ColorScheme.json  _data to initilizate the database_
+  * manage.py  
+  * &#x1f4c2;media  
+  * &#x1f4c2;openforbusiness
+  * &#x1f4c2;sites
+  * &#x1f4c2;users
+  
+* &#x1f4c2; static
+  * &#x1f4c2; admin _created by Django by default. Is the admin page_
+  * &#x1f4c2; images _directory for card's presentation images._
+* .gitignore _file to ignore for Git_
 * Pipfile  _dedicated file used by the Pipenv virtual environment to manage project dependencies. This file is essential for using Pipenv. When you create a Pipenv environment either for a new or an existing project, the Pipfile is generated automatically._
-
 * Pipfile.lock  _Has the specific versions for each dependency._
 * README.md   _this file_
 * requirements.txt  _list all the dependencies for the project_
-* &#x1f4c2; static
-  * &#x1f4c2; admin _created by Django by default. Is the admin page_
-  * &#x1f4c2; images _directory for card's presentation images.
-  * &#x1f4c2; js
 
 
-&#x1f4c2; ./openforbusiness
 
-* appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
-* BusinessClasification.json  _data to initilizate the database_
-* ColorScheme.json  _data to initilizate the database_
-* manage.py  
-* &#x1f4c2;media  
-* &#x1f4c2;openforbusiness
-* &#x1f4c2;sites
-* &#x1f4c2;users
+
+
+
 
 &#x1f4c2; ./openforbusiness/openforbusiness
 
