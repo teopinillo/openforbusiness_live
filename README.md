@@ -8,20 +8,25 @@ which business to select.
 
 
 
-### Python's Package needed to run this project.
+### Install the packages according to the configuration file
+`requirements.txt`
+
+`pip install -r requirements.txt`
+
 
 The file requirement.txt contains all necesary packages. Among them **pillow**, and **crispy forms**.
-To install the packages: *$[ pipenv install](https://pipenv-fork.readthedocs.io/en/latest/basics.html " pipenv install")*
 
 ## Initializing the Database.
 The project needs to initialize two tables before starting.
 
 note: postgres should be installed.
 
-```python manage.py makemigrations
+```
+python manage.py makemigrations
 python manage.py migrate
 python manage.py loaddata BusinessClasification.json
-python manage.py loaddata ColorScheme.json```
+python manage.py loaddata ColorScheme.json
+```
 
 ## check if migrations are ok
 `python manage.py migrate --check`
@@ -36,8 +41,8 @@ python manage.py loaddata ColorScheme.json```
 localhost:8000/admin/
 
 The data was originally dumped with the commands:
-python manage.py dumpdata sites.BusinessClasification > BusinessClasification.json
-python manage.py dumpdata sites.ColorScheme > ColorScheme.json
+`python manage.py dumpdata sites.BusinessClasification > BusinessClasification.json`
+`python manage.py dumpdata sites.ColorScheme > ColorScheme.json`
 
 ------------
 
@@ -71,10 +76,11 @@ For this project is used Postgree as a database.
 &#x1f4c2; __/__
 
 &#x1f4c2; openforbusiness
-* Pipfile  
-* Pipfile.lock  
-* README.md  
-* requirements.txt  
+* Pipfile  _dedicated file used by the Pipenv virtual environment to manage project dependencies. This file is essential for using Pipenv. When you create a Pipenv environment either for a new or an existing project, the Pipfile is generated automatically._
+
+* Pipfile.lock  _Has the specific versions for each dependency._
+* README.md   _this file_
+* requirements.txt  _list all the dependencies for the project_
 * &#x1f4c2; static
 
 &#x1f4c2; ./openforbusiness
