@@ -94,13 +94,14 @@ For this project is used Postgree as a database.
         * &#x1f30d;about.html
         * &#x1f30d;contact.html
         * &#x1f30d;layout.html
+    * &#x1f40d; \_init\_.py
     * &#x1f40d; asgi.py  
     * &#x1f40d; settings.py
     * &#x1f40d; urls.py  
     * &#x1f40d; views.py  
     * &#x1f40d; wsgi.py
 
-  * &#x1f40d; \_init\_.py  
+    
    
   * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
@@ -113,7 +114,7 @@ For this project is used Postgree as a database.
     * &#x1f4c2; static
       * &#x1f4c2; images
         * hand_shake.jpg
-      &#x1f4c2; js
+      * &#x1f4c2; js
         * newbusiness.js  	_instant change html page to see results as information is entered._
         * newreview.js  	_Track when user click on the star review_
         * sites.js			_Allow rating, flipping the card, set favorite_
