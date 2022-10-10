@@ -100,7 +100,7 @@ For this project is used Postgree as a database.
     * &#x1f40d; views.py  
     * &#x1f40d; wsgi.py
 
-  * &#x1f40d; __init__.py  
+  * &#x1f40d; \_init\_.py  
    
   * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
@@ -132,7 +132,7 @@ For this project is used Postgree as a database.
         * &#x1f30d;new_review.html   _adding a new review_
         * &#x1f30d;previewcard.html  _the card that is displayed when enter a new business_
         * &#x1f30d;schemes.html _page that display all card layouts_
-    * \_\_&#x1f40d;init__.py
+    * &#x1f40d; \_\_init\_\_.py
     * &#x1f40d; admin.py
     * &#x1f40d; apps.py
     * &#x1f40d; forms.py
