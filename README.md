@@ -9,9 +9,7 @@ which business to select.
 You can clone this branch with the command:
 `git clone -b web50/projects/2020/x/capstone https://github.com/me50/teopinillo.git`
 
-
-### Install the packages according to the configuration file
-`requirements.txt`
+### Install the packages according to the configuration file **requirements.txt
 
 `pip install -r requirements.txt`
 
@@ -61,20 +59,20 @@ For this project is used Postgree as a database.
 **Business** Hold the information related to a business.
 **PersonFavorite** : Track the user favorites business.
 **ColorScheme** : Color Scheme for business's card.
-  
-  Color scheme used: 
-  https://www.w3schools.com/colors/colors_schemes.asp
-  color names given by:
-  https://chir.ag/projects/name-that-color
-  
 **BusinessReview** : Keep reviews for business made by users.
+  
+  #### Color scheme used 
+  https://www.w3schools.com/colors/colors_schemes.asp
+
+  #### Color names given by:
+  https://chir.ag/projects/name-that-color
 
 #### Other resources used:
-  Font Awesome 4.  https://fontawesome.com/v4.7/icons/
-  Flaticon https://www.flaticon.com/
-  Markup Editor https://markdown-editor.github.io/
+  ##### Font Awesome 4.  https://fontawesome.com/v4.7/icons/
+  ##### Flaticon https://www.flaticon.com/
+  ##### Markup Editor https://markdown-editor.github.io/
 
-#### Files and Directories
+## Files and Directories
 
 &#x1f4c2; openforbusiness
   * &#x1f4c2; openforbusiness
@@ -102,7 +100,7 @@ For this project is used Postgree as a database.
     * &#x1f40d; views.py  
     * &#x1f40d; wsgi.py
 
-  * &#x1f40d; __init_.py  
+  * &#x1f40d; __init__.py  
    
   * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
