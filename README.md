@@ -15,6 +15,26 @@ You can clone this branch with the command:
 
 
 The file requirement.txt contains all necesary packages. Among them **pillow**, and **crispy forms**.
+## The appsecret file
+You must create this file on the root directory of the application.
+/openforbusiness/appsecrets.py
+
+the file should contains the following:
+
+```
+DATABASE_NAME = 'your_database_name'
+DATABASE_ADMIN_PASSWORD = 'your admin password for the database'
+SECRET_KEY = 'a secret key that will be used to create hashes'
+
+#GITHHUB ULR FOR AVATARS
+AVATARS_URL = "https://raw.githubusercontent.com/teopinillo/web-resources/main/avatars/"
+AVATARS_TOTAL = 650
+
+APP_LOGO_URL = "https://dl.dropboxusercontent.com/s/0omlfeix9bt9s2j/dog-5952028_640.jpg?dl=0"
+
+MY_EMAIL="your_email"
+MY_EMAIL_PASSWORD="your_email_passowrd"
+```
 
 ## Initializing the Database.
 The project needs to initialize two tables before starting.
@@ -112,7 +132,7 @@ For this project is used Postgree as a database.
       * &#x1f4c2; images
         * hand_shake.jpg
       * &#x1f4c2; js
-        * newbusiness.js  	_instant change html page to see results as information is entered._
+        * newbusiness.js  	_instantly change the HTMLML page to see results as information is entered._
         * newreview.js  	_Track when user click on the star review_
         * sites.js			_Allow rating, flipping the card, set favorite_
     * &#x1f4c2; templates
