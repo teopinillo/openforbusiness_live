@@ -78,31 +78,28 @@ For this project is used Postgree as a database.
   * &#x1f4c2; openforbusiness
     * &#x1f4c2; static 
       * &#x1f4c2; css
-        * &#x1f3a8;loginStyles.css  
-        * &#x1f3a8;new_business_style.css  
-        * &#x1f3a8;styles.css
+        * &#x1f3a8;loginStyles.css  _style sheet for the login page_
+        * &#x1f3a8;new_business_style.css  _style sheet for new business page_
+        * &#x1f3a8;styles.css _general style across diferent project web page_
       * &#x1f4c2; images
-        * favicon.ico  
-        * lteo_logo.png
+        * favicon.ico  _favicon icon_
+        * lteo_logo.png _my logo_
       * &#x1f4c2; js
-        * login.js  
-        * pwdchange.js  
-        * pwdreset.js  
-        * signup.js
+        * login.js  _set properties to elements on the login html page_
+        * pwdchange.js  _set properties to elements on password change html page_
+        * pwdreset.js  _set properties to the elements on the password reset html page_
+        * signup.js _set properties to elements on signup html page_
     * &#x1f4c2; templates
       * &#x1f4c2; openforbusiness
-        * &#x1f30d;about.html
-        * &#x1f30d;contact.html
-        * &#x1f30d;layout.html
+        * &#x1f30d;about.html _about page_
+        * &#x1f30d;contact.htmln _contact page_
+        * &#x1f30d;layout.html _general layout used across all pages_
     * &#x1f40d; \_init\_.py
-    * &#x1f40d; asgi.py  
-    * &#x1f40d; settings.py
-    * &#x1f40d; urls.py  
-    * &#x1f40d; views.py  
-    * &#x1f40d; wsgi.py
-
-    
-   
+    * &#x1f40d; asgi.py  _Django ASGI_
+    * &#x1f40d; settings.py _app settings_
+    * &#x1f40d; urls.py  _app urls_
+    * &#x1f40d; views.py  _app views_
+    * &#x1f40d; wsgi.py _Web Server Interface. Python Standard_
   * &#x1f40d;appsecrets.py  _keep passwords to login in the database, api key to retrive icons_
   * BusinessClasification.json  _data to initilizate the database_
   * ColorScheme.json  _data to initilizate the database_
@@ -120,48 +117,48 @@ For this project is used Postgree as a database.
         * sites.js			_Allow rating, flipping the card, set favorite_
     * &#x1f4c2; templates
       * &#x1f4c2; sites
-        * &#x1f30d;audit.html     
+        * &#x1f30d;audit.html _just for testing. We can see all data entered_
         * &#x1f30d;card.html _card template_
         * &#x1f30d;index.html   _home page_
         * &#x1f30d;newbusiness.html  _creating new business page_
-        * &#x1f30d;pagination.html   	&#x1f4cc;_django pagination, html fragment to be included in index html_
+        * &#x1f30d;pagination.html   _django pagination, html fragment to be included in index html_
         * &#x1f30d;reviews.html  _reiews page_
-        * &#x1f30d;cardback.html  _back of the card_
+        * &#x1f30d;cardback.html  _back of the card page_
         * &#x1f30d;error.html  _error page_
-        * &#x1f30d;icons.html
+        * &#x1f30d;icons.html _icons page_
         * &#x1f30d;listed.html _page for user's business listed_
         * &#x1f30d;new_review.html   _adding a new review_
         * &#x1f30d;previewcard.html  _the card that is displayed when enter a new business_
         * &#x1f30d;schemes.html _page that display all card layouts_
-    * &#x1f40d; \_\_init\_\_.py
-    * &#x1f40d; admin.py
-    * &#x1f40d; apps.py
-    * &#x1f40d; forms.py
-    * &#x1f40d; models.py
-    * &#x1f40d; tests.py
-    * &#x1f40d; urls.py
-    * &#x1f40d; views.py
+    * &#x1f40d; \_init\_.py _tells python this directory contains packages_
+    * &#x1f40d; admin.py _Django admin site_
+    * &#x1f40d; apps.py _application configuration_
+    * &#x1f40d; forms.py _Django forms_
+    * &#x1f40d; models.py _Data Structure_
+    * &#x1f40d; tests.py _Test Logic_
+    * &#x1f40d; urls.py _urls for the site app_
+    * &#x1f40d; views.py _django views for the site app_
   * &#x1f4c2;users  
-    * &#x1f4c2; migrations
+    * &#x1f4c2; migrations _django migrations_
     * &#x1f4c2; templates
-      * &#x1f4c2; registration
-        * &#x1f30d;login.html  
-        * &#x1f30d;password_change_done.html  
-        * &#x1f30d;password_change_form.html  
-        * &#x1f30d;password_reset_done.html  
-        * &#x1f30d;password_reset_form.html
+      * &#x1f4c2; registration 
+        * &#x1f30d;login.html  _login page_
+        * &#x1f30d;password_change_done.html  _password change done page_
+        * &#x1f30d;password_change_form.html  _page to change the user password_
+        * &#x1f30d;password_reset_done.html  _page when the password reset pass ok_
+        * &#x1f30d;password_reset_form.html _page to reset the password_
       * &#x1f4c2; users      
-        * &#x1f30d;avatars.html  
-        * &#x1f30d;profile.html  
-        * &#x1f30d;signup.html
-    * &#x1f40d; \_\_init\_\_.py
+        * &#x1f30d;avatars.html  _page to change the user avatar_
+        * &#x1f30d;profile.html  _user profile page_
+        * &#x1f30d;signup.html  _sign up page for new users_
+    * &#x1f40d; \_init\_.py
     * &#x1f40d;admin.py  
-    * &#x1f40d;apps.py  
-    * &#x1f40d;forms.py
-    * &#x1f40d;models.py
-    * &#x1f40d;tests.py  
-    * &#x1f40d;urls.py  
-    * &#x1f40d;views.py
+    * &#x1f40d;apps.py  _user app configuration_
+    * &#x1f40d;forms.py _user app django forms_
+    * &#x1f40d;models.py _data models for users_
+    * &#x1f40d;tests.py  _test module_
+    * &#x1f40d;urls.py  _user app urls_
+    * &#x1f40d;views.py _user app views_
 * &#x1f4c2; static
   * &#x1f4c2; admin _created by Django by default. Is the admin page_
     * &#x1f4c2; css		
