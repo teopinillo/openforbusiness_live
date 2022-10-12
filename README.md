@@ -13,6 +13,7 @@ You can clone this branch with the command:
 
 `pip install -r requirements.txt`
 
+For this project is used Postgree as a database. We need to create the database 'ofbdb'
 
 The file requirement.txt contains all necesary packages. Among them **pillow**, and **crispy forms**.
 ## The appsecret file
@@ -61,7 +62,9 @@ python manage.py loaddata ColorScheme.json
 localhost:8000/admin/
 
 The data was originally dumped with the commands:
+
 `python manage.py dumpdata sites.BusinessClasification > BusinessClasification.json`
+
 `python manage.py dumpdata sites.ColorScheme > ColorScheme.json`
 
 ------------
@@ -72,9 +75,8 @@ Keep all referent to user register, login, logout, pasword changes and recovery.
 ## App Sites
 The main part of the project. Keep the logic for the cards.
 
-For this project is used Postgree as a database.
-
 #### Models Description
+
 **BusinessClasification** : Hold the possibles clasification for a business.
 
 **Business** Hold the information related to a business.
