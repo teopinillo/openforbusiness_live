@@ -1,6 +1,5 @@
 # Project OpenForBusiness
-Capstone project for the CS50 Web Programming with Python and JavaScript
-https://cs50.harvard.edu/web/2020/projects/final/capstone/
+[Capstone project for the CS50 Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/projects/final/capstone/)
 
 ## Distinctiveness And Complexity
 
@@ -78,6 +77,8 @@ The data was originally dumped with the commands:
 
 ------------
 
+# Project Structure and Description
+
 ## App Users
 Keep all referent to user register, login, logout, pasword changes and recovery.
 
@@ -97,18 +98,18 @@ The main part of the project. Keep the logic for the cards.
 **BusinessReview** : Keep reviews for business made by users.
   
   #### Color scheme used 
-  https://www.w3schools.com/colors/colors_schemes.asp
+  [w3schools](https://www.w3schools.com/colors/colors_schemes.asp)
 
   #### Color names given by:
-  https://chir.ag/projects/name-that-color
+  [name that color](https://chir.ag/projects/name-that-color)
 
 #### Other resources used:
 
-  ##### Font Awesome 4.  https://fontawesome.com/v4.7/icons/
+  ##### [Font Awesome 4](https://fontawesome.com/v4.7/icons/)
 
-  ##### Flaticon https://www.flaticon.com/
+  ##### [Flaticon](https://www.flaticon.com/)
 
-  ##### Markup Editor https://markdown-editor.github.io/
+  ##### [Markup Editor](https://markdown-editor.github.io/)
 
 ## Files and Directories
 
