@@ -2,20 +2,25 @@
 Capstone project for the CS50 Web Programming with Python and JavaScript
 https://cs50.harvard.edu/web/2020/projects/final/capstone/
 
+## Distinctiveness And Complexity
+
 The intention of this project is to help small bussines to create an online presentation card.
 Also, customers can write and rate the business to help others future customers
 which business to select.
+
+The project use must of the techniques teaching during the course. Web pages, Styling, JS to modify a page dinamically, Python and Django under the logic. Connection to a database. User login to the app, logout, reset and recover passowrd. 
 
 You can clone this branch with the command:
 `git clone -b web50/projects/2020/x/capstone https://github.com/me50/teopinillo.git`
 
 ### Install the packages according to the configuration file **requirements.txt
 
+The file requirement.txt contains all necesary packages to be installed. Among them **pillow**, and **crispy forms**.
+
 `pip install -r requirements.txt`
 
-For this project is used Postgree as a database. We need to create the database 'ofbdb'
+For this project is used Postgree as a database. We need to create the database 'ofbdb'. Write down the user name and password to the database that will be need it when creating the file appsecrets.py
 
-The file requirement.txt contains all necesary packages. Among them **pillow**, and **crispy forms**.
 ## The appsecret file
 You must create this file on the root directory of the application.
 /openforbusiness/appsecrets.py
@@ -37,10 +42,11 @@ MY_EMAIL="your_email"
 MY_EMAIL_PASSWORD="your_email_passowrd"
 ```
 
+## create a superuser
+`python manage.py createsuperuser`
+
 ## Initializing the Database.
 The project needs to initialize two tables before starting.
-
-note: postgres should be installed.
 
 ```
 python manage.py makemigrations
@@ -52,14 +58,17 @@ python manage.py loaddata ColorScheme.json
 ## check if migrations are ok
 `python manage.py migrate --check`
 
-## create a superuser
-`python manage.py createsuperuser`
+## Activate virtual environment
+In the project root directory run:
+`pipenv shell`
 
 ## run the server
+descent into the directory \openforbusiness and run:
+
 `python manage.py runserver`
 
-## go to admin
-localhost:8000/admin/
+## open the app on your browser 
+localhost:8000/
 
 The data was originally dumped with the commands:
 
