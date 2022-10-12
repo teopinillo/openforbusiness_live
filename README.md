@@ -22,7 +22,7 @@ You must create this file on the root directory of the application.
 the file should contains the following:
 
 ```
-DATABASE_NAME = 'your_database_name'
+DATABASE_NAME = 'ofbdb'
 DATABASE_ADMIN_PASSWORD = 'your admin password for the database'
 SECRET_KEY = 'a secret key that will be used to create hashes'
 
@@ -76,9 +76,13 @@ For this project is used Postgree as a database.
 
 #### Models Description
 **BusinessClasification** : Hold the possibles clasification for a business.
+
 **Business** Hold the information related to a business.
+
 **PersonFavorite** : Track the user favorites business.
+
 **ColorScheme** : Color Scheme for business's card.
+
 **BusinessReview** : Keep reviews for business made by users.
   
   #### Color scheme used 
@@ -88,8 +92,11 @@ For this project is used Postgree as a database.
   https://chir.ag/projects/name-that-color
 
 #### Other resources used:
+
   ##### Font Awesome 4.  https://fontawesome.com/v4.7/icons/
+
   ##### Flaticon https://www.flaticon.com/
+
   ##### Markup Editor https://markdown-editor.github.io/
 
 ## Files and Directories
@@ -132,7 +139,7 @@ For this project is used Postgree as a database.
       * &#x1f4c2; images
         * hand_shake.jpg
       * &#x1f4c2; js
-        * newbusiness.js  	_instantly change the HTMLML page to see results as information is entered._
+        * newbusiness.js  	_instantly change the HTML page to see results as information is entered._
         * newreview.js  	_Track when user click on the star review_
         * sites.js			_Allow rating, flipping the card, set favorite_
     * &#x1f4c2; templates
