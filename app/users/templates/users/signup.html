@@ -1,0 +1,52 @@
+{% extends 'openforbusiness/layout.html' %}
+
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="https://dl.dropbox.com/s/hje0cj1dkxeasb1/loginStyles.css?dl=0">
+    <script src="https://dl.dropbox.com/s/7nrvjkc7qz9kc6e/signup.js?dl=0"></script>
+{% endblock %}
+
+{% block content%}
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="container">
+        <div class="loginbox">    
+            <div>        
+                <form method="POST">
+                    {% csrf_token %}
+                    
+                     <div class="form-group">
+                        {{ form.username.label }}
+                        {{ form.username }}
+                    </div>
+                      <div class="form-group">
+                        {{ form.email.label }}
+                        {{ form.email }}
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password1.label }}
+                        {{ form.password1 }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password2.label }}
+                        {{ form.password2 }}
+                    </div>
+
+                     <input class="btn btn-primary" type="submit" value="Register" style="margin-top: 10px;">
+                </form>  
+            </div>
+            <div>
+                have an account? <a href="{% url 'login' %}">login here.</a>         
+            </div>          
+        </div>
+
+    </div>
+
+{% endblock content%}
